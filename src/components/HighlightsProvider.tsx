@@ -48,6 +48,9 @@ const NOOP_CTX: Ctx = {
 // Every highlightable text unit in the book (see Highlightable.tsx).
 const UNIT_SELECTOR = '.book-flipper [data-hl-key]';
 
+// How long a touch selection must hold still before it becomes a highlight.
+const SELECTION_SETTLE_MS = 700;
+
 export function useHighlights(): Ctx {
   const ctx = useContext(HighlightsContext);
   return ctx ?? NOOP_CTX;
@@ -127,7 +130,7 @@ export function HighlightsProvider({ children }: { children: ReactNode }) {
   // grouped when the selection spans several (e.g. a heading and a paragraph).
   useEffect(() => {
     if (!mode) return;
-    function onMouseUp() {
+    function captureSelection() {
       const sel = window.getSelection();
       if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
       const range = sel.getRangeAt(0);
@@ -151,8 +154,27 @@ export function HighlightsProvider({ children }: { children: ReactNode }) {
       // Open the popup once the new marks have rendered.
       requestAnimationFrame(() => setPopup({ highlightId: created[0].id, anchor }));
     }
-    document.addEventListener('mouseup', onMouseUp);
-    return () => document.removeEventListener('mouseup', onMouseUp);
+
+    // Touch devices have no mouseup to finish on: a long press selects a word and
+    // the handles may then be dragged, so wait for the selection to stop changing.
+    let byTouch = false;
+    let settle: ReturnType<typeof setTimeout> | undefined;
+    const onTouchStart = () => { byTouch = true; clearTimeout(settle); };
+    const onSelectionChange = () => {
+      if (!byTouch) return;
+      clearTimeout(settle);
+      settle = setTimeout(() => { byTouch = false; captureSelection(); }, SELECTION_SETTLE_MS);
+    };
+
+    document.addEventListener('mouseup', captureSelection);
+    document.addEventListener('touchstart', onTouchStart, true);
+    document.addEventListener('selectionchange', onSelectionChange);
+    return () => {
+      clearTimeout(settle);
+      document.removeEventListener('mouseup', captureSelection);
+      document.removeEventListener('touchstart', onTouchStart, true);
+      document.removeEventListener('selectionchange', onSelectionChange);
+    };
   }, [mode]);
 
   const removeHighlight = useCallback((id: string) => {

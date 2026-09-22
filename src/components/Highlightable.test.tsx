@@ -109,6 +109,33 @@ describe('highlighting any book content', () => {
     expect(document.querySelector('.comment-popup')).not.toBeNull();
   });
 
+  it('highlights a touch selection once it stops changing', () => {
+    vi.useFakeTimers();
+    try {
+      const { container } = renderBook();
+      const node = textNode(container, 'Plain intro');
+      const unit = container.querySelector('.para')!;
+
+      unit.dispatchEvent(new Event('touchstart', { bubbles: true }));
+      const range = document.createRange();
+      range.setStart(node, 0);
+      range.setEnd(node, 5);
+      const sel = window.getSelection()!;
+      sel.removeAllRanges();
+      sel.addRange(range);
+      document.dispatchEvent(new Event('selectionchange'));
+
+      // Still being adjusted: nothing is written yet.
+      act(() => { vi.advanceTimersByTime(400); });
+      expect(marks(container)).toEqual([]);
+
+      act(() => { vi.advanceTimersByTime(400); });
+      expect(marks(container)).toEqual(['Plain']);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('splits a selection across blocks into one grouped highlight', () => {
     const { container } = renderBook();
     select(textNode(container, 'Scope of work'), 6, textNode(container, 'First item'), 5);
