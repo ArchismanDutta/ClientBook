@@ -9,6 +9,51 @@ export type BookShellHandle = {
   getTotal: () => number;
 };
 
+const SWIPE_DISTANCE = 45;   // px of horizontal travel that counts as a swipe
+const SWIPE_MAX_TIME = 1200; // ms: longer than this is a press, not a swipe
+
+// Turn the page on a horizontal swipe, whatever its speed. Gestures that belong
+// to something else — selecting text, opening a note, pressing a control — are
+// left alone.
+export function attachSwipe(container: HTMLElement, turn: { back: () => void; forward: () => void }) {
+  let start: { x: number; y: number; at: number } | null = null;
+
+  const onStart = (e: TouchEvent) => {
+    const target = e.target as HTMLElement | null;
+    const onText = document.body.dataset.highlightMode === 'on' && !!target?.closest('[data-hl-key]');
+    if (e.touches.length !== 1 || onText || target?.closest('mark.hl, a, button')) {
+      start = null;
+      return;
+    }
+    const touch = e.touches[0];
+    start = { x: touch.clientX, y: touch.clientY, at: Date.now() };
+  };
+
+  const onEnd = (e: TouchEvent) => {
+    const from = start;
+    start = null;
+    const touch = e.changedTouches[0];
+    if (!from || !touch) return;
+    const dx = touch.clientX - from.x;
+    const dy = touch.clientY - from.y;
+    if (Date.now() - from.at > SWIPE_MAX_TIME) return;
+    if (Math.abs(dx) < SWIPE_DISTANCE || Math.abs(dy) > Math.abs(dx)) return;
+    if (!window.getSelection()?.isCollapsed) return; // the reader is selecting text
+    if (dx > 0) turn.back();
+    else turn.forward();
+  };
+
+  const onCancel = () => { start = null; };
+  container.addEventListener('touchstart', onStart, { passive: true });
+  container.addEventListener('touchend', onEnd, { passive: true });
+  container.addEventListener('touchcancel', onCancel, { passive: true });
+  return () => {
+    container.removeEventListener('touchstart', onStart);
+    container.removeEventListener('touchend', onEnd);
+    container.removeEventListener('touchcancel', onCancel);
+  };
+}
+
 export function BookShell({ children, pageW, pageH, singlePage, initialPage, closed, onFlip, handleRef, clickToFlip = true }: {
   children: React.ReactNode;
   pageW: number;
@@ -38,16 +83,19 @@ export function BookShell({ children, pageW, pageH, singlePage, initialPage, clo
       width: pageW, height: pageH, size: 'fixed', autoSize: false,
       drawShadow: true, maxShadowOpacity: .3, showCover: true,
       usePortrait: singlePage, flippingTime: reducedMotion ? 1 : 550,
-      useMouseEvents: true, mobileScrollSupport: false,
-      disableFlipByClick: singlePage || !clickToFlip, showPageCorners: !singlePage,
+      // On a phone the swipes below replace page-flip's own touch handling,
+      // which only turns back from a fast flick near the page's left edge.
+      useMouseEvents: !singlePage, mobileScrollSupport: false,
+      disableFlipByClick: !singlePage && !clickToFlip, showPageCorners: !singlePage,
       swipeDistance: 40,
     });
     // page-flip reads its settings on every click, so the front and back covers
     // can always open with a plain click even when inner pages only turn from
-    // their corners.
+    // their corners. On a phone it stays off: page-flip sees no clicks there,
+    // and it also refuses flipPrev() — the arrows and swipes — while it is on.
     const syncClickToFlip = (index: number) => {
       const onCover = index === 0 || index === flip.getPageCount() - 1;
-      flip.getSettings().disableFlipByClick = singlePage || (!clickToFlip && !onCover);
+      flip.getSettings().disableFlipByClick = !singlePage && !clickToFlip && !onCover;
     };
     flip.on('flip', e => { pageRef.current = e.data; syncClickToFlip(e.data); onFlip(e.data); });
     const pageClasses = pages.map(page => page.className);
@@ -60,7 +108,16 @@ export function BookShell({ children, pageW, pageH, singlePage, initialPage, clo
       next: () => flip.flipNext(), prev: () => flip.flipPrev(), turnTo,
       getCurrent: () => flip.getCurrentPageIndex(), getTotal: () => flip.getPageCount(),
     };
+
+    // Swipes on a phone, in place of page-flip's: a turn should not depend on
+    // how fast the finger moved or where on the page it started.
+    const detachSwipe = singlePage ? attachSwipe(container, {
+      back: () => flip.flipPrev(),
+      forward: () => flip.flipNext(),
+    }) : undefined;
+
     return () => {
+      detachSwipe?.();
       handleRef.current = null;
       // page-flip never stops its drawing loop; mute it so it cannot keep
       // restyling these pages after teardown.
