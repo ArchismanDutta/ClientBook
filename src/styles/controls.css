@@ -1,0 +1,35 @@
+.progress-track { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: #14131014; z-index: 10; }
+.progress-fill { height: 100%; background: var(--pink); transition: width .3s ease; }
+.reader-navigation { position: sticky; bottom: max(12px, env(safe-area-inset-bottom)); z-index: 20; max-width: 100%; margin-top: 2px; }
+.controls {
+  display: flex; align-items: center; gap: 4px;
+  max-width: 100%; padding: 6px 8px; border-radius: 18px;
+  background: #211e19f5; color: var(--paper-3);
+  box-shadow: 0 8px 24px #34261026; backdrop-filter: blur(12px);
+  font-family: var(--font-ui); font-size: 11px; font-weight: 500;
+}
+.controls button {
+  display: flex; justify-content: center; align-items: center;
+  background: none; border: 0; color: inherit;
+  min-height: 44px; min-width: 44px; padding: 8px 12px;
+  border-radius: 12px; cursor: pointer; font: inherit;
+}
+.controls button:hover:not(:disabled) { background: #ffffff18; }
+.controls button:disabled { opacity: .25; cursor: default; }
+.controls-arrow { font-size: 22px !important; }
+.controls-page { min-width: 100px; text-align: center; white-space: nowrap; }
+.controls-page em { font-family: var(--font-display); font-style: italic; font-size: 16px; margin: 0 4px; }
+.controls-sep { width: 1px; height: 20px; margin: 0 4px; background: #ffffff26; }
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.controls button:focus-visible { outline-color: var(--mint); outline-offset: -2px; }
+@media (max-width: 599px) {
+  .controls { gap: 2px; padding: 5px 6px; }
+  .controls button { padding: 8px 9px; }
+  .controls-page { min-width: 72px; }
+}
+@media (max-width: 380px) {
+  .controls { gap: 0; padding: 5px; font-size: 10px; }
+  .controls button { padding: 7px; }
+  .controls-page { min-width: 80px; }
+  .controls-sep { margin: 0 2px; }
+}

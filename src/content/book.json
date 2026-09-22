@@ -1,0 +1,3917 @@
+{
+  "title": "Preneur Gate",
+  "subtitle": "Detailed Statement of Work",
+  "meta": {
+    "version": "1.1",
+    "date": "22 September 2026",
+    "imprint": "Preneur Gate Press",
+    "generatedAt": "2026-09-22T11:56:17.401Z"
+  },
+  "sections": [
+    {
+      "id": "front-matter",
+      "level": 1,
+      "title": "Front Matter",
+      "blocks": [
+        {
+          "type": "callout",
+          "label": "PRENEUR GATE",
+          "body": [
+            {
+              "text": "DETAILED STATEMENT OF WORK",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              ""
+            ]
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Premium Online Learning & Entrepreneur Community Platform",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Three Functional Modules on a Shared Platform Architecture | Single Integrated Delivery"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Project",
+              "Preneur Gate"
+            ],
+            [
+              "Document",
+              "Detailed Statement of Work (SOW)"
+            ],
+            [
+              "Version",
+              "1.1 - Architecture Updated"
+            ],
+            [
+              "Date",
+              "22 September 2026"
+            ],
+            [
+              "Delivery Window",
+              "45-60 calendar days; three functional modules delivered together on one shared platform"
+            ]
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Prepared for client review based on the supplied Premium Online Learning Platform Project SOP and its marked exclusions.",
+              "italic": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a-document-control-scope-basis",
+      "level": 1,
+      "title": "A. Document Control & Scope Basis",
+      "blocks": [
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "This SOW converts the client-provided Premium Online Learning Platform Project SOP into an implementation-ready plan for the project named Preneur Gate. The scope has been reorganized into three interconnected modules to simplify delivery ownership, sequencing, quality assurance and final acceptance."
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "DELIVERY PRINCIPLE",
+          "body": [
+            {
+              "text": "The Website & Member Experience, Course & E-Book Learning Platform, and Admin Management Platform will be developed in parallel wherever technically feasible. Internal demonstrations may occur during development, but no module will be treated as a separate final delivery. All three modules will be integrated, tested and delivered together as one product."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Scope Interpretation Rules",
+          "id": "scope-interpretation-rules"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Features visibly crossed out in red in the supplied SOP are excluded from this SOW."
+              }
+            ],
+            [
+              {
+                "text": "Where the SOP retains a high-level capability but crosses out a related dashboard widget or sub-feature, the retained capability is included only within the boundaries explicitly described in this SOW."
+              }
+            ],
+            [
+              {
+                "text": "Features that are described as conditional in the supplied SOP, but do not define implementation details, are not treated as committed base-scope integrations unless expressly listed here."
+              }
+            ],
+            [
+              {
+                "text": "Technology stack, hosting provider, commercial values, payment terms and final production infrastructure are not specified in the source SOP and therefore remain to be mutually confirmed."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Document Contents",
+          "id": "document-contents"
+        },
+        {
+          "type": "table",
+          "header": [
+            "Section",
+            "Topic"
+          ],
+          "rows": [
+            [
+              "1",
+              "Executive Summary & Objectives"
+            ],
+            [
+              "2",
+              "Technical Architecture & Module Boundaries"
+            ],
+            [
+              "3",
+              "Module 1 - Website & Member Experience"
+            ],
+            [
+              "4",
+              "Module 2 - Course & E-Book Learning Platform"
+            ],
+            [
+              "5",
+              "Module 3 - Admin Management Platform"
+            ],
+            [
+              "6",
+              "Cross-Module Functional & Non-Functional Requirements"
+            ],
+            [
+              "7",
+              "Implementation Plan: 45-60 Calendar Days"
+            ],
+            [
+              "8",
+              "Testing, UAT & Acceptance"
+            ],
+            [
+              "9",
+              "Deliverables & Handover"
+            ],
+            [
+              "10",
+              "Client / Delivery Team Responsibilities"
+            ],
+            [
+              "11",
+              "Assumptions, Dependencies & Clarifications"
+            ],
+            [
+              "12",
+              "Explicit Out-of-Scope Items"
+            ],
+            [
+              "13",
+              "Change Control & Scope Governance"
+            ],
+            [
+              "14",
+              "Final Delivery & Sign-Off"
+            ],
+            [
+              "Appendix A",
+              "Feature-to-Module Scope Matrix"
+            ],
+            [
+              "Appendix B",
+              "Marked Exclusions Register"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1-executive-summary-objectives",
+      "level": 1,
+      "title": "1. Executive Summary & Objectives",
+      "blocks": [
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Preneur Gate will be developed as a premium online education and entrepreneur community platform combining structured learning, digital reading, assessments, AI-assisted study support, professional member networking and centralized administration."
+            }
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The implementation will be organized as three parallel product modules so that public/member experience, learning delivery and administration can progress concurrently while sharing a common authentication, permissions, data and design foundation."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Primary Product Objectives",
+          "id": "primary-product-objectives"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Provide secure user registration, authentication and personalized onboarding."
+              }
+            ],
+            [
+              {
+                "text": "Provide a learner dashboard showing enrolled learning, progress, assessments, certificates, community activity and notifications within the retained scope."
+              }
+            ],
+            [
+              {
+                "text": "Deliver recorded/video learning with progress tracking, resume capability, lesson navigation and enrollment/permission-based access."
+              }
+            ],
+            [
+              {
+                "text": "Deliver an interactive in-browser e-book reading experience with bookmarks, highlighting, notes, search and reading-progress tracking."
+              }
+            ],
+            [
+              {
+                "text": "Provide AI-assisted study functions for course and e-book learning, excluding the crossed-out entrepreneur-focused AI assistance."
+              }
+            ],
+            [
+              {
+                "text": "Provide mock tests, assessments, results, performance metrics and retained leaderboard functionality."
+              }
+            ],
+            [
+              {
+                "text": "Provide digital certificates with verification-oriented fields retained in the SOP."
+              }
+            ],
+            [
+              {
+                "text": "Provide entrepreneur community profiles, feeds, connections, groups, geo-based member discovery and member interactions."
+              }
+            ],
+            [
+              {
+                "text": "Provide centralized admin controls for users, learning content, assessments, community moderation, certificates, website content and platform analytics."
+              }
+            ],
+            [
+              {
+                "text": "Provide a premium, modern, minimal, responsive user experience across desktop, laptop, tablet and mobile browsers."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Single-Release Delivery Model",
+          "id": "single-release-delivery-model"
+        },
+        {
+          "type": "callout",
+          "label": "IMPORTANT",
+          "body": [
+            {
+              "text": "The three modules are not sequential phase deliveries. Development, review and QA will be parallelized, followed by one integrated UAT and one combined production delivery. The contractual implementation window should be read as 45-60 calendar days from formal commencement, subject to the dependencies and response times stated in this SOW."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2-technical-architecture-module-boundaries",
+      "level": 1,
+      "title": "2. Technical Architecture & Module Boundaries",
+      "blocks": [
+        {
+          "type": "table",
+          "header": [
+            "Module",
+            "Purpose",
+            "Primary Users",
+            "Key Capability Areas"
+          ],
+          "rows": [
+            [
+              "Module 1",
+              "Website & Member Experience (User Web App)",
+              "Visitors, learners, community members",
+              "Public/CMS pages, authentication, onboarding, learner dashboard, profiles, community, discovery, connections, groups, goals and smart search"
+            ],
+            [
+              "Module 2",
+              "Course & E-Book Learning (within User Web App)",
+              "Learners",
+              "Recorded/video learning, media streaming, progress, e-book reader, AI study support, assessments, performance and certificates"
+            ],
+            [
+              "Module 3",
+              "Administration Platform (Separate Admin Frontend)",
+              "Administrators",
+              "Users, roles, permissions, learning content, assessments, community moderation, certificates, CMS controls and analytics"
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.1 Architecture Principle - Three Functional Modules, One Shared Platform",
+          "id": "2-1-architecture-principle-three-functional-modules-one-shar"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Preneur Gate will use three functional/product modules for planning, ownership and acceptance; technically, these modules will operate on a shared platform architecture rather than as three independent backends. This prevents duplication of users, permissions, course data, learning progress, community data, assessments and analytics."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Single user identity and authentication foundation across all modules."
+              }
+            ],
+            [
+              {
+                "text": "Role-based permissions and access control used consistently by learner/community and admin interfaces."
+              }
+            ],
+            [
+              {
+                "text": "Shared data model for users, courses, e-books, assessments, certificates, community objects and analytics."
+              }
+            ],
+            [
+              {
+                "text": "Shared responsive component system and premium visual language."
+              }
+            ],
+            [
+              {
+                "text": "Common notification and activity data where required by retained features."
+              }
+            ],
+            [
+              {
+                "text": "Integrated search across retained searchable entities."
+              }
+            ],
+            [
+              {
+                "text": "Unified deployment and release process."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "RECOMMENDED ARCHITECTURE PATTERN",
+          "body": [
+            {
+              "text": "Use a modular-monolith core backend with clear domain boundaries, a unified user-facing web application, a separate administration frontend, a shared relational data layer, object/media storage, cache, search interfaces and an isolated AI/RAG integration layer. This pattern is intentionally chosen to support the 45-60 day delivery window while preserving a clean path to future scale-out."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.2 Application / Frontend Layer",
+          "id": "2-2-application-frontend-layer"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The frontend architecture will use two deployable applications while preserving the three functional SOW modules."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "User Web Application: public website, authentication/onboarding, learner dashboard, Course & E-Book Learning experiences, AI Student Buddy, assessments, certificates, community, profiles, groups, geo discovery, goals and search."
+              }
+            ],
+            [
+              {
+                "text": "Admin Web Application: a separate administration interface for authorized administrators to manage users, roles, permissions, courses, e-books, assessments, community moderation, certificates, CMS content and platform analytics."
+              }
+            ],
+            [
+              {
+                "text": "The Course & E-Book Learning module will live inside the same user web experience rather than requiring learners to move between unrelated applications or duplicated accounts."
+              }
+            ],
+            [
+              {
+                "text": "A shared design/component system will keep visual behavior consistent across public, member and admin surfaces while allowing admin-specific interaction patterns."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.3 API & Core Backend Layer - Modular Monolith",
+          "id": "2-3-api-core-backend-layer-modular-monolith"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The initial release should use one deployable core backend organized into well-defined domain modules. Each domain remains logically separated in code and permissions, but the platform avoids premature microservice complexity."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "header": [
+            "Backend Domain",
+            "Responsibility"
+          ],
+          "rows": [
+            [
+              "Identity & Access",
+              "authentication, sessions, roles, permissions and access control"
+            ],
+            [
+              "Users & Profiles",
+              "profiles, interests, skills, goals, location/privacy preferences"
+            ],
+            [
+              "Courses & Learning",
+              "courses, lessons, enrollments, entitlements, progress and completion"
+            ],
+            [
+              "E-Books",
+              "book metadata, reader state, bookmarks, highlights, notes and reading progress"
+            ],
+            [
+              "Assessments",
+              "question banks, tests, attempts, answers, results and scores"
+            ],
+            [
+              "Certificates",
+              "templates, issuance, verification identifiers/URLs and validation"
+            ],
+            [
+              "Community",
+              "posts, comments, reactions, follows, connections, messaging and groups"
+            ],
+            [
+              "Discovery & Search",
+              "member discovery and unified searchable entities"
+            ],
+            [
+              "Notifications",
+              "in-app notification records and future notification-channel interfaces"
+            ],
+            [
+              "Analytics / Activity",
+              "retained learning, assessment, content and community event metrics"
+            ],
+            [
+              "Administration",
+              "admin-facing orchestration and governance over the same shared domain data"
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.4 Data, Cache & Storage Architecture",
+          "id": "2-4-data-cache-storage-architecture"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Primary relational database: one shared transactional database is recommended for the first release (PostgreSQL or equivalent), with data logically separated by domain rather than duplicated per product module."
+              }
+            ],
+            [
+              {
+                "text": "Cache / short-lived state: Redis or an equivalent cache is recommended for rate limits, temporary tokens, frequently accessed data and other transient platform state where appropriate."
+              }
+            ],
+            [
+              {
+                "text": "Object storage: videos, PDFs, e-books, profile images, community media and course attachments should be stored in object/file storage rather than inside the relational database."
+              }
+            ],
+            [
+              {
+                "text": "CDN/media delivery: large media assets should be delivered through a CDN or managed media-delivery layer to avoid routing heavy file traffic through the business API."
+              }
+            ],
+            [
+              {
+                "text": "Private/protected learning assets must remain subject to backend authorization/entitlement checks or secure access mechanisms."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.5 Course Video / Media Delivery Architecture",
+          "id": "2-5-course-video-media-delivery-architecture"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The core backend will control who is allowed to access learning media and will store progress/completion state; large video delivery itself should be handled by a storage/CDN or managed streaming layer."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "header": [
+            "Flow",
+            "Platform Responsibility",
+            "Infrastructure Responsibility"
+          ],
+          "rows": [
+            [
+              "Upload",
+              "Validate course/lesson association and administrator authorization",
+              "Store source media; process/transcode where the selected provider supports it"
+            ],
+            [
+              "Playback",
+              "Validate enrollment/permission and return authorized media access",
+              "Serve/stream media efficiently through storage/CDN/streaming service"
+            ],
+            [
+              "Progress",
+              "Record playback position, completion and resume state",
+              "No business-state ownership"
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.6 E-Book Reader Architecture",
+          "id": "2-6-e-book-reader-architecture"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Reader state is a first-class application domain rather than a simple file viewer."
+              }
+            ],
+            [
+              {
+                "text": "The backend will retain reading position/progress, bookmarks, highlights, notes and download permissions for supported e-book content."
+              }
+            ],
+            [
+              {
+                "text": "The user web app will provide the in-browser reading interface and synchronization of learner state."
+              }
+            ],
+            [
+              {
+                "text": "AI actions on book content will be routed through the protected AI layer rather than directly from the browser to an AI vendor."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.7 AI / RAG Integration Layer",
+          "id": "2-7-ai-rag-integration-layer"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "AI functionality should be isolated behind a Preneur Gate AI service/orchestration layer. The browser will call Preneur Gate APIs; API keys and AI-provider access will not be exposed to end users."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "The AI layer will enforce user authorization, usage controls, prompt/context structure, logging and provider abstraction."
+              }
+            ],
+            [
+              {
+                "text": "Course/e-book-aware assistance should retrieve relevant authorized learning content before generating responses (RAG/retrieval-based context), so the AI can ground explanations and summaries in the learner content available to that user."
+              }
+            ],
+            [
+              {
+                "text": "A vector/search index may be introduced for course/e-book chunks when required by the final AI implementation. The exact provider/database remains a technical implementation decision."
+              }
+            ],
+            [
+              {
+                "text": "Third-party AI model/API charges remain outside the software build unless separately included commercially, consistent with the source scope."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.8 Search, Notifications & Activity Events",
+          "id": "2-8-search-notifications-activity-events"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Search will be exposed through a shared Search API/service boundary. The first release may use relational full-text/indexed search; a dedicated search engine can be introduced later without changing the user-facing contract."
+              }
+            ],
+            [
+              {
+                "text": "Notifications will be centralized through a Notification module so course, assessment, certificate and community features do not implement unrelated notification logic separately."
+              }
+            ],
+            [
+              {
+                "text": "Key business activities (for example course completion, assessment submission, certificate issuance and community activity) should generate structured activity events that can feed retained analytics and dashboards."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.9 Deployment Topology",
+          "id": "2-9-deployment-topology"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The recommended first-release deployment topology is deliberately simple and production-oriented:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "User Web Application deployment."
+              }
+            ],
+            [
+              {
+                "text": "Admin Web Application deployment."
+              }
+            ],
+            [
+              {
+                "text": "Single Core API / Backend deployment (modular monolith)."
+              }
+            ],
+            [
+              {
+                "text": "Relational database service."
+              }
+            ],
+            [
+              {
+                "text": "Cache service where required."
+              }
+            ],
+            [
+              {
+                "text": "Object/media storage and CDN/streaming layer."
+              }
+            ],
+            [
+              {
+                "text": "AI/RAG integration service or isolated backend module with separate provider credentials."
+              }
+            ],
+            [
+              {
+                "text": "Environment-specific configuration for development/staging/production as agreed."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "2.10 Scalability & Future Service Extraction",
+          "id": "2-10-scalability-future-service-extraction"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The architecture is designed to avoid over-engineering the first release while retaining clear extraction points. If scale, operational load or team ownership later requires independent services, high-load capabilities can be separated without redesigning the product modules."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "AI processing / retrieval infrastructure."
+              }
+            ],
+            [
+              {
+                "text": "Search indexing and search engine."
+              }
+            ],
+            [
+              {
+                "text": "Video processing/media workflows."
+              }
+            ],
+            [
+              {
+                "text": "Notifications."
+              }
+            ],
+            [
+              {
+                "text": "Analytics/event processing."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "header": [
+            "ARCHITECTURE DECISION SUMMARYPreneur Gate is commercially organized as three modules, but technically implemented as two frontends (User Web + Admin Web) connected to one shared modular core platform. This creates one source of truth for identity, permissions and business data, supports the agreed single combined launch, reduces delivery risk within 45-60 days, and keeps future scalability options open."
+          ],
+          "rows": []
+        }
+      ]
+    },
+    {
+      "id": "3-module-1-website-member-experience",
+      "level": 1,
+      "title": "3. Module 1 - Website & Member Experience",
+      "blocks": [
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Module 1 covers the public-facing website and authenticated member experience outside the dedicated learning player/reader workflows. It provides the primary entry point to Preneur Gate and the community/member layer."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.1 Public Website & CMS-Driven Areas",
+          "id": "3-1-public-website-cms-driven-areas"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Homepage."
+              }
+            ],
+            [
+              {
+                "text": "CMS pages."
+              }
+            ],
+            [
+              {
+                "text": "FAQs."
+              }
+            ],
+            [
+              {
+                "text": "Course listing and course detail presentation."
+              }
+            ],
+            [
+              {
+                "text": "E-book/course discovery entry points."
+              }
+            ],
+            [
+              {
+                "text": "Categories and featured-course presentation."
+              }
+            ],
+            [
+              {
+                "text": "Responsive navigation and consistent site-wide UI components."
+              }
+            ],
+            [
+              {
+                "text": "Banners and other admin-controlled website content defined in the source scope."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.2 Registration, Authentication & Onboarding",
+          "id": "3-2-registration-authentication-onboarding"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Email registration."
+              }
+            ],
+            [
+              {
+                "text": "Google login."
+              }
+            ],
+            [
+              {
+                "text": "Apple login where supported."
+              }
+            ],
+            [
+              {
+                "text": "Forgot password and password reset."
+              }
+            ],
+            [
+              {
+                "text": "Email verification."
+              }
+            ],
+            [
+              {
+                "text": "User profile creation."
+              }
+            ],
+            [
+              {
+                "text": "Interest selection."
+              }
+            ],
+            [
+              {
+                "text": "Industry selection."
+              }
+            ],
+            [
+              {
+                "text": "Skill-level selection."
+              }
+            ],
+            [
+              {
+                "text": "Learning-goal selection."
+              }
+            ],
+            [
+              {
+                "text": "Profile photo and bio."
+              }
+            ],
+            [
+              {
+                "text": "Location and business information."
+              }
+            ],
+            [
+              {
+                "text": "Skills and interests."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.3 Student / Learner Dashboard",
+          "id": "3-3-student-learner-dashboard"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The learner dashboard will consolidate retained learning, assessment, certification and community information. Crossed-out widgets are not included."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Enrolled courses."
+              }
+            ],
+            [
+              {
+                "text": "Continue learning."
+              }
+            ],
+            [
+              {
+                "text": "Course progress and completion percentage."
+              }
+            ],
+            [
+              {
+                "text": "E-books and saved courses."
+              }
+            ],
+            [
+              {
+                "text": "Completed courses."
+              }
+            ],
+            [
+              {
+                "text": "Mock tests and test scores."
+              }
+            ],
+            [
+              {
+                "text": "Average score."
+              }
+            ],
+            [
+              {
+                "text": "Certificates."
+              }
+            ],
+            [
+              {
+                "text": "Learning hours (streak mechanics are excluded with gamification)."
+              }
+            ],
+            [
+              {
+                "text": "Community activity."
+              }
+            ],
+            [
+              {
+                "text": "Notifications."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "DASHBOARD EXCLUSION BOUNDARY",
+          "body": [
+            {
+              "text": "Upcoming classes, dedicated Recommended Courses widgets, dedicated AI Recommendations widgets, XP points/badges and gamification streak mechanics are excluded. Retained leaderboard/performance functions belong to the learning/assessment module rather than gamification."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.4 Entrepreneur Community Platform",
+          "id": "3-4-entrepreneur-community-platform"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Member profile creation and profile viewing."
+              }
+            ],
+            [
+              {
+                "text": "Create text, image and video posts."
+              }
+            ],
+            [
+              {
+                "text": "Ask questions, share knowledge and participate in discussions."
+              }
+            ],
+            [
+              {
+                "text": "Comment, reply, react, save, follow and report content."
+              }
+            ],
+            [
+              {
+                "text": "Follow members and connect with members."
+              }
+            ],
+            [
+              {
+                "text": "Profile information including name, profile photo, bio, skills, business, industry, country, city, interests, certificates and courses completed."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.5 Geo-Based Friend & Member Discovery",
+          "id": "3-5-geo-based-friend-member-discovery"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Discovery by city, country, approximate distance, industry, skills, interests, business category and user type."
+              }
+            ],
+            [
+              {
+                "text": "Distance options: 5 km, 10 km, 25 km, 50 km and 100 km."
+              }
+            ],
+            [
+              {
+                "text": "Approximate-location approach with privacy controls; exact private location is not publicly displayed unless deliberately shared."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.6 Member Connection & Friend System",
+          "id": "3-6-member-connection-friend-system"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Follow / unfollow."
+              }
+            ],
+            [
+              {
+                "text": "Friend request and accept / reject request."
+              }
+            ],
+            [
+              {
+                "text": "Connections."
+              }
+            ],
+            [
+              {
+                "text": "Suggested members."
+              }
+            ],
+            [
+              {
+                "text": "Member search."
+              }
+            ],
+            [
+              {
+                "text": "Profile viewing."
+              }
+            ],
+            [
+              {
+                "text": "Direct messaging."
+              }
+            ],
+            [
+              {
+                "text": "Block member."
+              }
+            ],
+            [
+              {
+                "text": "Report member."
+              }
+            ],
+            [
+              {
+                "text": "Suggested connections may use retained profile and participation context such as location, industry, skills, course participation and interests."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.7 Community Feed",
+          "id": "3-7-community-feed"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Text posts."
+              }
+            ],
+            [
+              {
+                "text": "Image posts."
+              }
+            ],
+            [
+              {
+                "text": "Video posts."
+              }
+            ],
+            [
+              {
+                "text": "Polls."
+              }
+            ],
+            [
+              {
+                "text": "Questions."
+              }
+            ],
+            [
+              {
+                "text": "Discussions."
+              }
+            ],
+            [
+              {
+                "text": "Resources."
+              }
+            ],
+            [
+              {
+                "text": "Like/react, comment, reply, save, follow and report interactions."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.8 Community Groups",
+          "id": "3-8-community-groups"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Public groups."
+              }
+            ],
+            [
+              {
+                "text": "Private groups."
+              }
+            ],
+            [
+              {
+                "text": "Join requests."
+              }
+            ],
+            [
+              {
+                "text": "Group discussions."
+              }
+            ],
+            [
+              {
+                "text": "Files."
+              }
+            ],
+            [
+              {
+                "text": "Announcements."
+              }
+            ],
+            [
+              {
+                "text": "Polls."
+              }
+            ],
+            [
+              {
+                "text": "Group members."
+              }
+            ],
+            [
+              {
+                "text": "Moderators."
+              }
+            ],
+            [
+              {
+                "text": "Illustrative group categories retained by the source include AI Entrepreneurs, SaaS Entrepreneurs, Digital Marketing, E-commerce, Startup Founders and Business Owners."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.9 Founder Mastermind Groups",
+          "id": "3-9-founder-mastermind-groups"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Admin-created curated entrepreneur groups for premium or targeted cohorts."
+              }
+            ],
+            [
+              {
+                "text": "Membership/access can be controlled using industry, business stage, revenue range, location, interests and program enrollment."
+              }
+            ],
+            [
+              {
+                "text": "Admin-controlled membership and access."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.10 Student Goal & Progress Tracking",
+          "id": "3-10-student-goal-progress-tracking"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Goal examples: complete a course, pass a certification, finish an e-book and complete selected lessons."
+              }
+            ],
+            [
+              {
+                "text": "Dashboard tracking: goal, progress, deadline, tasks completed, remaining tasks and completion percentage."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "3.11 Smart Search - Member / Website Surfaces",
+          "id": "3-11-smart-search-member-website-surfaces"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Search across retained platform entities including courses, lessons, e-books, community posts, members and groups."
+              }
+            ],
+            [
+              {
+                "text": "Filters: category, type, skill, course and industry."
+              }
+            ],
+            [
+              {
+                "text": "Instructor and mentor search are excluded because the related instructor/mentor modules are crossed out."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4-module-2-course-e-book-learning-platform",
+      "level": 1,
+      "title": "4. Module 2 - Course & E-Book Learning Platform",
+      "blocks": [
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Module 2 delivers the end-to-end digital learning experience: recorded/video courses, structured lesson content, e-book reading, AI-assisted study, assessments, performance analytics and certificates."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.1 Course Management - Learner-Facing Scope",
+          "id": "4-1-course-management-learner-facing-scope"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Included Course Types",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Recorded courses."
+              }
+            ],
+            [
+              {
+                "text": "Video courses."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "EXCLUDED COURSE TYPES",
+          "body": [
+            {
+              "text": "Masterclasses, workshops, live courses, cohort courses, certification programs as a course type, micro-learning courses and premium programs were crossed out and are not included as committed course-type workflows."
+            }
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Supported Content",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Video."
+              }
+            ],
+            [
+              {
+                "text": "Audio."
+              }
+            ],
+            [
+              {
+                "text": "Text lessons."
+              }
+            ],
+            [
+              {
+                "text": "PDFs."
+              }
+            ],
+            [
+              {
+                "text": "Presentations."
+              }
+            ],
+            [
+              {
+                "text": "E-books."
+              }
+            ],
+            [
+              {
+                "text": "Assignments."
+              }
+            ],
+            [
+              {
+                "text": "Quizzes."
+              }
+            ],
+            [
+              {
+                "text": "Tests."
+              }
+            ],
+            [
+              {
+                "text": "Case studies."
+              }
+            ],
+            [
+              {
+                "text": "Downloadable files."
+              }
+            ],
+            [
+              {
+                "text": "Resources."
+              }
+            ],
+            [
+              {
+                "text": "External live-session links as simple resource URLs only; no live-class scheduling, attendance, calendar or reminder system."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.2 Video Learning & Streaming",
+          "id": "4-2-video-learning-streaming"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "HD video streaming."
+              }
+            ],
+            [
+              {
+                "text": "Play / pause."
+              }
+            ],
+            [
+              {
+                "text": "Playback-speed control."
+              }
+            ],
+            [
+              {
+                "text": "Full-screen mode."
+              }
+            ],
+            [
+              {
+                "text": "Video chapter navigation."
+              }
+            ],
+            [
+              {
+                "text": "Video completion tracking."
+              }
+            ],
+            [
+              {
+                "text": "Resume from last position."
+              }
+            ],
+            [
+              {
+                "text": "Progress tracking."
+              }
+            ],
+            [
+              {
+                "text": "Subtitles where uploaded."
+              }
+            ],
+            [
+              {
+                "text": "Course lesson navigation."
+              }
+            ],
+            [
+              {
+                "text": "Bookmark and save lessons."
+              }
+            ],
+            [
+              {
+                "text": "Mark lessons complete."
+              }
+            ],
+            [
+              {
+                "text": "Access control based on configured enrollment, role or subscription/entitlement permissions."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.3 Interactive E-Book Reader",
+          "id": "4-3-interactive-e-book-reader"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "E-book library."
+              }
+            ],
+            [
+              {
+                "text": "In-browser reader."
+              }
+            ],
+            [
+              {
+                "text": "Chapter navigation."
+              }
+            ],
+            [
+              {
+                "text": "Reading-progress tracking."
+              }
+            ],
+            [
+              {
+                "text": "Continue reading."
+              }
+            ],
+            [
+              {
+                "text": "Page bookmarks."
+              }
+            ],
+            [
+              {
+                "text": "Text highlighting."
+              }
+            ],
+            [
+              {
+                "text": "Personal notes."
+              }
+            ],
+            [
+              {
+                "text": "Search inside books."
+              }
+            ],
+            [
+              {
+                "text": "Font-size adjustment."
+              }
+            ],
+            [
+              {
+                "text": "Dark reading mode."
+              }
+            ],
+            [
+              {
+                "text": "Reading percentage."
+              }
+            ],
+            [
+              {
+                "text": "Admin-controlled download permissions."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.4 AI-Assisted E-Book Features",
+          "id": "4-4-ai-assisted-e-book-features"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Chapter summaries."
+              }
+            ],
+            [
+              {
+                "text": "Book summaries."
+              }
+            ],
+            [
+              {
+                "text": "Explanation of selected text."
+              }
+            ],
+            [
+              {
+                "text": "Important concept extraction."
+              }
+            ],
+            [
+              {
+                "text": "Revision notes."
+              }
+            ],
+            [
+              {
+                "text": "AI-generated questions."
+              }
+            ],
+            [
+              {
+                "text": "AI-generated flashcards."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.5 AI Student Buddy - Student Learning Assistance",
+          "id": "4-5-ai-student-buddy-student-learning-assistance"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Answer course-related questions."
+              }
+            ],
+            [
+              {
+                "text": "Explain difficult concepts."
+              }
+            ],
+            [
+              {
+                "text": "Simplify lessons."
+              }
+            ],
+            [
+              {
+                "text": "Generate examples."
+              }
+            ],
+            [
+              {
+                "text": "Summarize learning material."
+              }
+            ],
+            [
+              {
+                "text": "Summarize e-book chapters."
+              }
+            ],
+            [
+              {
+                "text": "Generate revision notes."
+              }
+            ],
+            [
+              {
+                "text": "Generate practice questions."
+              }
+            ],
+            [
+              {
+                "text": "Generate flashcards."
+              }
+            ],
+            [
+              {
+                "text": "Create study plans."
+              }
+            ],
+            [
+              {
+                "text": "Recommend learning content within the retained learning recommendation scope."
+              }
+            ],
+            [
+              {
+                "text": "Review weak areas."
+              }
+            ],
+            [
+              {
+                "text": "Explain incorrect answers."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "AI SCOPE BOUNDARY",
+          "body": [
+            {
+              "text": "Entrepreneur-focused AI assistance - including business idea discussion, customer persona guidance, ICP guidance, sales-funnel guidance, marketing strategy assistance, pricing guidance, business-model guidance and launch-plan assistance - is excluded because that block was crossed out in the supplied SOP."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.6 Personalized Learning Recommendation System",
+          "id": "4-6-personalized-learning-recommendation-system"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The retained recommendation layer may use learner activity and profile data to surface relevant next-step learning content. Because dedicated Recommended Courses and AI Recommendations widgets were crossed out on the Student Dashboard, those dashboard widgets are not a committed deliverable."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "User interests."
+              }
+            ],
+            [
+              {
+                "text": "Courses completed."
+              }
+            ],
+            [
+              {
+                "text": "Course progress."
+              }
+            ],
+            [
+              {
+                "text": "Test and quiz scores."
+              }
+            ],
+            [
+              {
+                "text": "Learning history."
+              }
+            ],
+            [
+              {
+                "text": "Skills."
+              }
+            ],
+            [
+              {
+                "text": "Selected objectives."
+              }
+            ],
+            [
+              {
+                "text": "Saved courses."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.7 Mock Test & Assessment System",
+          "id": "4-7-mock-test-assessment-system"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Question Types",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Multiple-choice."
+              }
+            ],
+            [
+              {
+                "text": "Multiple-select."
+              }
+            ],
+            [
+              {
+                "text": "True / false."
+              }
+            ],
+            [
+              {
+                "text": "Short answer."
+              }
+            ],
+            [
+              {
+                "text": "Long answer."
+              }
+            ],
+            [
+              {
+                "text": "Case-study questions."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Assessment Features",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Test timer."
+              }
+            ],
+            [
+              {
+                "text": "Question navigation."
+              }
+            ],
+            [
+              {
+                "text": "Random questions."
+              }
+            ],
+            [
+              {
+                "text": "Random answer ordering."
+              }
+            ],
+            [
+              {
+                "text": "Question banks."
+              }
+            ],
+            [
+              {
+                "text": "Difficulty levels."
+              }
+            ],
+            [
+              {
+                "text": "Attempt limits."
+              }
+            ],
+            [
+              {
+                "text": "Pass percentage."
+              }
+            ],
+            [
+              {
+                "text": "Auto-submit."
+              }
+            ],
+            [
+              {
+                "text": "Flag questions."
+              }
+            ],
+            [
+              {
+                "text": "Review questions."
+              }
+            ],
+            [
+              {
+                "text": "Section-wise tests."
+              }
+            ],
+            [
+              {
+                "text": "Automatic results for objective questions."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.8 Scoreboard & Performance Analytics",
+          "id": "4-8-scoreboard-performance-analytics"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Student Metrics",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Test score."
+              }
+            ],
+            [
+              {
+                "text": "Quiz score."
+              }
+            ],
+            [
+              {
+                "text": "Course score."
+              }
+            ],
+            [
+              {
+                "text": "Average percentage."
+              }
+            ],
+            [
+              {
+                "text": "Completion percentage."
+              }
+            ],
+            [
+              {
+                "text": "Learning hours."
+              }
+            ],
+            [
+              {
+                "text": "Test attempts."
+              }
+            ],
+            [
+              {
+                "text": "Correct answers."
+              }
+            ],
+            [
+              {
+                "text": "Incorrect answers."
+              }
+            ],
+            [
+              {
+                "text": "Course progress."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Weekly performance and monthly performance were crossed out and are excluded."
+            }
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Leaderboards",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Global leaderboard."
+              }
+            ],
+            [
+              {
+                "text": "Course leaderboard."
+              }
+            ],
+            [
+              {
+                "text": "Batch leaderboard."
+              }
+            ],
+            [
+              {
+                "text": "Friends leaderboard."
+              }
+            ],
+            [
+              {
+                "text": "Monthly leaderboard."
+              }
+            ],
+            [
+              {
+                "text": "Country / city leaderboard where applicable."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "4.9 Digital Certificate System",
+          "id": "4-9-digital-certificate-system"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Certificates may be issued after the learner satisfies configured completion or assessment criteria."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Student name."
+              }
+            ],
+            [
+              {
+                "text": "Course name."
+              }
+            ],
+            [
+              {
+                "text": "Completion date."
+              }
+            ],
+            [
+              {
+                "text": "Certificate number."
+              }
+            ],
+            [
+              {
+                "text": "QR code."
+              }
+            ],
+            [
+              {
+                "text": "Verification URL."
+              }
+            ],
+            [
+              {
+                "text": "Digital verification."
+              }
+            ],
+            [
+              {
+                "text": "Social sharing where technically available."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Grade and instructor name are excluded because they were crossed out in the source SOP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5-module-3-admin-management-platform",
+      "level": 1,
+      "title": "5. Module 3 - Admin Management Platform",
+      "blocks": [
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Module 3 is the centralized operational control plane for Preneur Gate. It manages retained user roles, learning content, assessments, community activity, certificates, website content and platform analytics."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.1 User Management",
+          "id": "5-1-user-management"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Students."
+              }
+            ],
+            [
+              {
+                "text": "Community users."
+              }
+            ],
+            [
+              {
+                "text": "Roles."
+              }
+            ],
+            [
+              {
+                "text": "Permissions."
+              }
+            ],
+            [
+              {
+                "text": "Active / inactive users."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Instructor and mentor user-management entries are excluded because the related instructor and mentor modules were crossed out."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.2 Course & E-Book Management",
+          "id": "5-2-course-e-book-management"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Courses."
+              }
+            ],
+            [
+              {
+                "text": "Categories."
+              }
+            ],
+            [
+              {
+                "text": "Lessons."
+              }
+            ],
+            [
+              {
+                "text": "Videos."
+              }
+            ],
+            [
+              {
+                "text": "E-books."
+              }
+            ],
+            [
+              {
+                "text": "Assessments."
+              }
+            ],
+            [
+              {
+                "text": "Approvals."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.3 Assessment Management",
+          "id": "5-3-assessment-management"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Questions."
+              }
+            ],
+            [
+              {
+                "text": "Question banks."
+              }
+            ],
+            [
+              {
+                "text": "Tests."
+              }
+            ],
+            [
+              {
+                "text": "Results."
+              }
+            ],
+            [
+              {
+                "text": "Scores."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.4 Community Management",
+          "id": "5-4-community-management"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Posts."
+              }
+            ],
+            [
+              {
+                "text": "Groups."
+              }
+            ],
+            [
+              {
+                "text": "Reported content."
+              }
+            ],
+            [
+              {
+                "text": "Members."
+              }
+            ],
+            [
+              {
+                "text": "Moderation."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.5 Certificate Management",
+          "id": "5-5-certificate-management"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Certificate templates."
+              }
+            ],
+            [
+              {
+                "text": "Certificate issue."
+              }
+            ],
+            [
+              {
+                "text": "Certificate validation."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.6 Website Management",
+          "id": "5-6-website-management"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Banners."
+              }
+            ],
+            [
+              {
+                "text": "Homepage."
+              }
+            ],
+            [
+              {
+                "text": "Categories."
+              }
+            ],
+            [
+              {
+                "text": "Featured courses."
+              }
+            ],
+            [
+              {
+                "text": "CMS pages."
+              }
+            ],
+            [
+              {
+                "text": "FAQs."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.7 Platform Analytics",
+          "id": "5-7-platform-analytics"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Total users."
+              }
+            ],
+            [
+              {
+                "text": "New users."
+              }
+            ],
+            [
+              {
+                "text": "Active users."
+              }
+            ],
+            [
+              {
+                "text": "Course enrollments."
+              }
+            ],
+            [
+              {
+                "text": "Course completion."
+              }
+            ],
+            [
+              {
+                "text": "Course popularity."
+              }
+            ],
+            [
+              {
+                "text": "Assessment performance."
+              }
+            ],
+            [
+              {
+                "text": "Community engagement."
+              }
+            ],
+            [
+              {
+                "text": "E-book usage."
+              }
+            ],
+            [
+              {
+                "text": "Certificates issued."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "AI usage analytics were crossed out and are excluded. Financial reporting related to payments is not included in the base SOW because payment functionality is only described conditionally in the source and no payment implementation scope is defined."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "5.8 Admin Access & Governance",
+          "id": "5-8-admin-access-governance"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Role-based administrator permissions."
+              }
+            ],
+            [
+              {
+                "text": "Admin-controlled file/download permissions where applicable."
+              }
+            ],
+            [
+              {
+                "text": "Admin-controlled community membership/access for curated groups."
+              }
+            ],
+            [
+              {
+                "text": "Admin moderation of reported community content and members."
+              }
+            ],
+            [
+              {
+                "text": "Admin control over course/e-book content and assessment structures."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6-cross-module-functional-non-functional-requirements",
+      "level": 1,
+      "title": "6. Cross-Module Functional & Non-Functional Requirements",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6.1 Security",
+          "id": "6-1-security"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Secure authentication."
+              }
+            ],
+            [
+              {
+                "text": "Password encryption."
+              }
+            ],
+            [
+              {
+                "text": "Role-based permissions."
+              }
+            ],
+            [
+              {
+                "text": "Secure API architecture."
+              }
+            ],
+            [
+              {
+                "text": "Session management."
+              }
+            ],
+            [
+              {
+                "text": "Access control."
+              }
+            ],
+            [
+              {
+                "text": "File-access controls."
+              }
+            ],
+            [
+              {
+                "text": "Admin audit controls."
+              }
+            ],
+            [
+              {
+                "text": "Secure cloud storage approach."
+              }
+            ],
+            [
+              {
+                "text": "Account blocking."
+              }
+            ],
+            [
+              {
+                "text": "Community reporting."
+              }
+            ],
+            [
+              {
+                "text": "Data protection mechanisms."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6.2 Responsive Design",
+          "id": "6-2-responsive-design"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The web application will support desktop, laptop, tablet and mobile browsers with responsive behavior across major modern browsers and devices."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6.3 UI / UX Direction",
+          "id": "6-3-ui-ux-direction"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Premium visual language."
+              }
+            ],
+            [
+              {
+                "text": "Simple navigation."
+              }
+            ],
+            [
+              {
+                "text": "Learning-first UX."
+              }
+            ],
+            [
+              {
+                "text": "Entrepreneur-focused presentation."
+              }
+            ],
+            [
+              {
+                "text": "Mobile-responsive layouts."
+              }
+            ],
+            [
+              {
+                "text": "Consistent component system."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "6.4 Major Retained Screens",
+          "id": "6-4-major-retained-screens"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Homepage"
+              }
+            ],
+            [
+              {
+                "text": "Login"
+              }
+            ],
+            [
+              {
+                "text": "Registration"
+              }
+            ],
+            [
+              {
+                "text": "Onboarding"
+              }
+            ],
+            [
+              {
+                "text": "Course listing"
+              }
+            ],
+            [
+              {
+                "text": "Course detail"
+              }
+            ],
+            [
+              {
+                "text": "Video learning"
+              }
+            ],
+            [
+              {
+                "text": "E-book reader"
+              }
+            ],
+            [
+              {
+                "text": "Mock test"
+              }
+            ],
+            [
+              {
+                "text": "Results"
+              }
+            ],
+            [
+              {
+                "text": "Certificates"
+              }
+            ],
+            [
+              {
+                "text": "Student dashboard"
+              }
+            ],
+            [
+              {
+                "text": "Community"
+              }
+            ],
+            [
+              {
+                "text": "Member profile"
+              }
+            ],
+            [
+              {
+                "text": "Groups"
+              }
+            ],
+            [
+              {
+                "text": "Geo member discovery"
+              }
+            ],
+            [
+              {
+                "text": "AI Buddy"
+              }
+            ],
+            [
+              {
+                "text": "Admin dashboard"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Live classes and Instructor Dashboard major screens are excluded."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7-implementation-plan-45-60-calendar-days",
+      "level": 1,
+      "title": "7. Implementation Plan: 45-60 Calendar Days",
+      "blocks": [
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The plan below is organized against a maximum 60-calendar-day implementation window. The team may complete earlier within the 45-60 day range when approvals, content, access and feedback are received without delay. The schedule assumes parallel workstreams and one integrated final delivery."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Period",
+              "Website & Member Experience",
+              "Course & E-Book Learning",
+              "Admin Platform",
+              "Integrated Milestone"
+            ],
+            [
+              "Days 1-5",
+              "Final sitemap, user journeys, auth/onboarding flows, community architecture",
+              "Learning architecture, course/e-book structure, assessment and AI flow definition",
+              "Admin IA, roles/permissions model, content-management workflow definition",
+              "Kickoff, scope freeze, shared data model and design system foundation"
+            ],
+            [
+              "Days 6-12",
+              "Website, dashboard, profile, community and discovery UI/UX",
+              "Course, player, reader, assessment, result and certificate UI/UX",
+              "Admin dashboard and management interface UI/UX",
+              "Core UI/UX review and implementation-ready designs"
+            ],
+            [
+              "Days 13-20",
+              "Registration, login, onboarding, profiles, public/CMS foundation, dashboard shell",
+              "Course catalogue/detail, lesson/content model, learner access foundations",
+              "Admin authentication, users/roles, course/category/lesson administration",
+              "Core platform development sprint"
+            ],
+            [
+              "Days 21-30",
+              "Community profiles/feed, connections, member search, geo discovery, groups",
+              "Video streaming/player, progress/resume, e-book reader and reading state",
+              "Video/e-book/content upload controls, assessment/question-bank management",
+              "Major functional workflows operational"
+            ],
+            [
+              "Days 31-40",
+              "Founder groups, goals, smart search, dashboard integrations, notifications",
+              "AI study features, recommendations, assessments, results, analytics, certificates",
+              "Community moderation, certificates, CMS controls, platform analytics",
+              "Feature-complete development target"
+            ],
+            [
+              "Days 41-48",
+              "Responsive refinement and module integration",
+              "Learning-state, permission and analytics integration",
+              "Cross-module admin controls and reporting integration",
+              "End-to-end integration build"
+            ],
+            [
+              "Days 49-55",
+              "Functional, responsive and community QA",
+              "Streaming/reader/assessment/certificate QA",
+              "Permissions, moderation, content-management and analytics QA",
+              "Integrated QA + client UAT build"
+            ],
+            [
+              "Days 56-60",
+              "UAT fixes and production readiness",
+              "UAT fixes and production readiness",
+              "UAT fixes and production readiness",
+              "Single combined deployment, acceptance and handover"
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "7.1 Schedule Governance",
+          "id": "7-1-schedule-governance"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "The day count begins after formal project commencement and availability of the minimum inputs required to start."
+              }
+            ],
+            [
+              {
+                "text": "Module-level demonstrations are progress checkpoints only and do not constitute separate final delivery or acceptance."
+              }
+            ],
+            [
+              {
+                "text": "Feedback should be consolidated by the client to avoid conflicting instructions and rework."
+              }
+            ],
+            [
+              {
+                "text": "Material scope changes after scope freeze may affect the delivery window through the change-control process."
+              }
+            ],
+            [
+              {
+                "text": "Final release occurs only after cross-module integration, QA and UAT."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8-testing-uat-acceptance",
+      "level": 1,
+      "title": "8. Testing, UAT & Acceptance",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "8.1 Testing Coverage",
+          "id": "8-1-testing-coverage"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Functional testing of retained user and admin workflows."
+              }
+            ],
+            [
+              {
+                "text": "Authentication and role/permission verification."
+              }
+            ],
+            [
+              {
+                "text": "Responsive behavior checks across desktop, laptop, tablet and mobile layouts."
+              }
+            ],
+            [
+              {
+                "text": "Course/video progress and resume-state testing."
+              }
+            ],
+            [
+              {
+                "text": "E-book reading-state, bookmark, highlight and note testing."
+              }
+            ],
+            [
+              {
+                "text": "Assessment flow, result calculation and objective auto-result testing."
+              }
+            ],
+            [
+              {
+                "text": "Certificate generation/validation workflow testing."
+              }
+            ],
+            [
+              {
+                "text": "Community posting, interaction, connection, group and moderation workflow testing."
+              }
+            ],
+            [
+              {
+                "text": "Smart search and retained filter testing."
+              }
+            ],
+            [
+              {
+                "text": "Cross-module integration and regression testing."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "8.2 User Acceptance Testing (UAT)",
+          "id": "8-2-user-acceptance-testing-uat"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "A combined UAT build will be provided after the three modules reach integrated release-candidate status. UAT will validate the agreed in-scope workflows rather than re-open product scope."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Client reviews the integrated product against the approved SOW and agreed test scenarios."
+              }
+            ],
+            [
+              {
+                "text": "Client provides consolidated defects/observations."
+              }
+            ],
+            [
+              {
+                "text": "Delivery team resolves reproducible in-scope defects."
+              }
+            ],
+            [
+              {
+                "text": "Re-test is performed on corrected items and critical regressions."
+              }
+            ],
+            [
+              {
+                "text": "Acceptance is recorded for the complete product rather than module-by-module."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "8.3 Acceptance Criteria",
+          "id": "8-3-acceptance-criteria"
+        },
+        {
+          "type": "table",
+          "header": [
+            "Acceptance Area",
+            "Minimum Acceptance Condition"
+          ],
+          "rows": [
+            [
+              "Authentication",
+              "Retained registration/login/reset/verification and onboarding flows operate as agreed."
+            ],
+            [
+              "Learning",
+              "Recorded/video learning, progress/resume and lesson navigation operate for authorized users."
+            ],
+            [
+              "E-Books",
+              "Reader, progress, bookmarks, highlights, notes and retained reading controls operate."
+            ],
+            [
+              "Assessments",
+              "Retained question types, test controls, objective results and scores operate."
+            ],
+            [
+              "Certificates",
+              "Retained certificate fields, issue flow and validation mechanism operate."
+            ],
+            [
+              "Community",
+              "Profiles, feed, connections, messaging, groups, discovery and moderation operate within retained scope."
+            ],
+            [
+              "Admin",
+              "Retained management areas allow authorized administrators to manage users, content, assessments, community, certificates, website/CMS and analytics."
+            ],
+            [
+              "Responsive UX",
+              "Major retained screens are usable across the agreed responsive device classes."
+            ],
+            [
+              "Release",
+              "No known blocker defect remains in an agreed core acceptance workflow at final sign-off."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9-deliverables-handover",
+      "level": 1,
+      "title": "9. Deliverables & Handover",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "9.1 Product Deliverables",
+          "id": "9-1-product-deliverables"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Integrated responsive Preneur Gate web application containing all three in-scope modules."
+              }
+            ],
+            [
+              {
+                "text": "Website & Member Experience module."
+              }
+            ],
+            [
+              {
+                "text": "Course & E-Book Learning Platform module."
+              }
+            ],
+            [
+              {
+                "text": "Admin Management Platform module."
+              }
+            ],
+            [
+              {
+                "text": "Integrated authentication, permissions, search, analytics and shared data behavior required by retained features."
+              }
+            ],
+            [
+              {
+                "text": "Production-ready build after agreed UAT corrections."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "9.2 Proposed Handover Package - To Be Confirmed",
+          "id": "9-2-proposed-handover-package-to-be-confirmed"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The source SOP does not define operational handover artifacts. The following are proposed SOW deliverables and should be confirmed by both parties before commencement:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Deployment/configuration notes for the agreed hosting environment."
+              }
+            ],
+            [
+              {
+                "text": "Administrator orientation covering core management workflows."
+              }
+            ],
+            [
+              {
+                "text": "Basic release notes summarizing delivered scope and known accepted limitations."
+              }
+            ],
+            [
+              {
+                "text": "Source-code/repository handover or access arrangement as defined by the commercial agreement."
+              }
+            ],
+            [
+              {
+                "text": "Credential/access handover process for production services owned by the client."
+              }
+            ],
+            [
+              {
+                "text": "Technical architecture overview covering frontend boundaries, modular core backend, shared data layer, media/storage delivery and AI integration boundaries."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10-client-delivery-team-responsibilities",
+      "level": 1,
+      "title": "10. Client / Delivery Team Responsibilities",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "10.1 Client Responsibilities",
+          "id": "10-1-client-responsibilities"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Provide timely consolidated feedback and approvals."
+              }
+            ],
+            [
+              {
+                "text": "Provide brand assets, final copy, course/e-book content, video files, assessment content, certificate content and other production data required for launch."
+              }
+            ],
+            [
+              {
+                "text": "Provide or authorize accounts/credentials required for supported third-party sign-in or production services where applicable."
+              }
+            ],
+            [
+              {
+                "text": "Nominate one primary decision-maker or approval channel for scope/design decisions."
+              }
+            ],
+            [
+              {
+                "text": "Participate in UAT and provide a consolidated acceptance/defect list within the agreed review period."
+              }
+            ],
+            [
+              {
+                "text": "Confirm legal/privacy/content policies required for community/member features before production launch."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "10.2 Delivery Team Responsibilities",
+          "id": "10-2-delivery-team-responsibilities"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Implement the retained scope defined in this SOW."
+              }
+            ],
+            [
+              {
+                "text": "Maintain module integration across shared authentication, permissions, data and design components."
+              }
+            ],
+            [
+              {
+                "text": "Provide development progress checkpoints and an integrated UAT build."
+              }
+            ],
+            [
+              {
+                "text": "Perform internal functional and responsive QA before UAT."
+              }
+            ],
+            [
+              {
+                "text": "Resolve reproducible in-scope defects identified during the agreed UAT period."
+              }
+            ],
+            [
+              {
+                "text": "Prepare the final integrated release for the agreed production environment."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11-assumptions-dependencies-clarifications",
+      "level": 1,
+      "title": "11. Assumptions, Dependencies & Clarifications",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "11.1 Core Assumptions",
+          "id": "11-1-core-assumptions"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "The project is a responsive web application; native iOS/Android applications are not specified in the source SOP."
+              }
+            ],
+            [
+              {
+                "text": "The final technology stack and hosting architecture will be agreed separately; this SOW defines product scope rather than a mandatory framework/vendor."
+              }
+            ],
+            [
+              {
+                "text": "Course and e-book content is supplied in usable digital formats by the client."
+              }
+            ],
+            [
+              {
+                "text": "Admin users, rather than a separate instructor portal, will control course/e-book publishing and management because instructor modules are excluded."
+              }
+            ],
+            [
+              {
+                "text": "Payment gateway implementation is not included in the base scope because the source only references payment reporting conditionally and does not define a payment flow."
+              }
+            ],
+            [
+              {
+                "text": "External live-session links, if used as content, are treated as simple resource links; no live-class system is included."
+              }
+            ],
+            [
+              {
+                "text": "The retained recommendation system does not include the crossed-out dedicated recommendation widgets on the Student Dashboard."
+              }
+            ],
+            [
+              {
+                "text": "Leaderboards retained under performance analytics are treated separately from the excluded gamification/XP/badge system."
+              }
+            ],
+            [
+              {
+                "text": "The system will preserve logical service boundaries so AI, search, media processing, notifications or analytics can be extracted later if scale or operational requirements justify it."
+              }
+            ],
+            [
+              {
+                "text": "PostgreSQL/relational storage, Redis-class caching, object storage/CDN and retrieval/search infrastructure are architectural recommendations; equivalent technologies may be selected during technical setup without changing the functional scope."
+              }
+            ],
+            [
+              {
+                "text": "The recommended first-release architecture is a modular monolith for core business capabilities, with separate User Web and Admin Web frontends."
+              }
+            ],
+            [
+              {
+                "text": "The three SOW modules are functional boundaries, not three standalone backend systems; identity, permissions and retained business data will use a shared platform foundation."
+              }
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "11.2 Schedule Dependencies",
+          "id": "11-2-schedule-dependencies"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Delays in approvals, content, credentials, production access or UAT feedback may move the practical completion date within or beyond the planned window."
+              }
+            ],
+            [
+              {
+                "text": "New features, changed workflows or substantial redesign requests after approval may require a revised estimate."
+              }
+            ],
+            [
+              {
+                "text": "The 45-day end of the range assumes rapid approvals and no material dependency delays; the 60-day schedule is the maximum planned implementation envelope for the agreed base scope."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12-explicit-out-of-scope-items",
+      "level": 1,
+      "title": "12. Explicit Out-of-Scope Items",
+      "blocks": [
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The following items are excluded because they were visibly crossed out in the client-supplied SOP or depend on modules that were crossed out. They must not be treated as implied deliverables."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "header": [
+            "Area",
+            "Excluded Items"
+          ],
+          "rows": [
+            [
+              "Live learning",
+              "Live classes; live classroom scheduling; class calendar; meeting-link management as a live-class system; student attendance; class reminders; live-class screen."
+            ],
+            [
+              "Course types",
+              "Masterclasses; workshops; live courses; cohort courses; certification programs as a course type; micro-learning courses; premium programs."
+            ],
+            [
+              "Gamification",
+              "Gamification system; XP award rules; XP points; levels; badges; achievement milestones; gamification learning streaks; profile achievements."
+            ],
+            [
+              "Dashboard widgets",
+              "Upcoming classes; dedicated Recommended Courses widget; dedicated AI Recommendations widget; XP/badge dashboard item."
+            ],
+            [
+              "AI - entrepreneur assistance",
+              "Business idea discussion; customer persona guidance; ICP guidance; sales-funnel guidance; marketing strategy assistance; pricing guidance; business-model guidance; launch-plan assistance."
+            ],
+            [
+              "Performance detail",
+              "Weekly performance and monthly performance metrics."
+            ],
+            [
+              "Certificates",
+              "Grade and instructor name fields."
+            ],
+            [
+              "Mentor system",
+              "Mentor profiles, discovery/review and related mentor features."
+            ],
+            [
+              "Instructor system",
+              "Instructor dashboard; instructor analytics; instructor-specific course management portal; instructor/mentor user-management entries; instructor/mentor search; instructor dashboard screen."
+            ],
+            [
+              "Corporate access",
+              "Corporate / organization access, organization accounts, multiple learners, learner/course assignment, training progress, employee assessment and organization dashboard."
+            ],
+            [
+              "Analytics",
+              "AI usage analytics."
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "12.1 Not Defined in the Source SOP",
+          "id": "12-1-not-defined-in-the-source-sop"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "The following items are not specified with sufficient implementation detail in the source SOP and are therefore not committed by this SOW unless separately added in writing:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            [
+              {
+                "text": "Payment checkout / payment gateway workflow."
+              }
+            ],
+            [
+              {
+                "text": "Native mobile applications."
+              }
+            ],
+            [
+              {
+                "text": "Specific hosting provider or cloud vendor."
+              }
+            ],
+            [
+              {
+                "text": "Specific technology framework or database."
+              }
+            ],
+            [
+              {
+                "text": "Formal third-party penetration testing or compliance certification."
+              }
+            ],
+            [
+              {
+                "text": "Migration of legacy users/content from an existing production system."
+              }
+            ],
+            [
+              {
+                "text": "Complex external integrations not explicitly listed in this SOW."
+              }
+            ],
+            [
+              {
+                "text": "Ongoing post-launch maintenance/SLA terms beyond any separately agreed support arrangement."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "13-change-control-scope-governance",
+      "level": 1,
+      "title": "13. Change Control & Scope Governance",
+      "blocks": [
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "Any request that adds, removes or materially changes an agreed workflow after scope freeze should be handled through written change control so that cost, timing and technical impact can be assessed before implementation."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "number",
+          "items": [
+            [
+              {
+                "text": "Change request is documented with requested behavior and business reason."
+              }
+            ],
+            [
+              {
+                "text": "Delivery team assesses design, development, integration, testing and schedule impact."
+              }
+            ],
+            [
+              {
+                "text": "Both parties approve the change and any revised timeline/commercial terms before work begins."
+              }
+            ],
+            [
+              {
+                "text": "Approved changes become an addendum or updated SOW item."
+              }
+            ],
+            [
+              {
+                "text": "Unapproved requests remain outside the base delivery commitment."
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "14-final-delivery-sign-off",
+      "level": 1,
+      "title": "14. Final Delivery & Sign-Off",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "14.1 Final Delivery",
+          "id": "14-1-final-delivery"
+        },
+        {
+          "type": "callout",
+          "label": "COMBINED RELEASE",
+          "body": [
+            {
+              "text": "Preneur Gate will be delivered as one integrated product consisting of all three in-scope modules. Module-level completion does not trigger independent final acceptance; the release milestone is the integrated production-ready product after combined QA and UAT."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "14.2 Proposed Sign-Off Record",
+          "id": "14-2-proposed-sign-off-record"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Project",
+              "Preneur Gate"
+            ],
+            [
+              "SOW Version",
+              "1.0"
+            ],
+            [
+              "Client Authorized Representative",
+              "________________________________________"
+            ],
+            [
+              "Delivery Partner Authorized Representative",
+              "________________________________________"
+            ],
+            [
+              "Acceptance / Approval Date",
+              "________________________________________"
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "14.3 Approval Statement",
+          "id": "14-3-approval-statement"
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "By approving this SOW, both parties confirm that the retained features, excluded items, three functional-module structure, shared-platform modular architecture, parallel development approach and single combined delivery model reflect the intended base scope for Preneur Gate. Any later material change will be managed through the agreed change-control process."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "appendix-a-feature-to-module-scope-matrix",
+      "level": 1,
+      "title": "Appendix A. Feature-to-Module Scope Matrix",
+      "blocks": [
+        {
+          "type": "table",
+          "header": [
+            "Capability",
+            "Owner Module",
+            "Scope Status"
+          ],
+          "rows": [
+            [
+              "Registration / Authentication / Onboarding",
+              "Module 1",
+              "Included"
+            ],
+            [
+              "Student Dashboard",
+              "Module 1",
+              "Included with crossed-out widgets removed"
+            ],
+            [
+              "Public Website / CMS Pages / FAQs",
+              "Module 1 + Module 3 controls",
+              "Included"
+            ],
+            [
+              "Entrepreneur Community",
+              "Module 1",
+              "Included"
+            ],
+            [
+              "Geo Member Discovery",
+              "Module 1",
+              "Included"
+            ],
+            [
+              "Member Connections / Messaging",
+              "Module 1",
+              "Included"
+            ],
+            [
+              "Community Feed / Groups / Founder Groups",
+              "Module 1",
+              "Included"
+            ],
+            [
+              "Student Goals / Progress Tracking",
+              "Module 1 + Module 2 data",
+              "Included"
+            ],
+            [
+              "Smart Search",
+              "Module 1 + shared platform",
+              "Included; instructor/mentor search excluded"
+            ],
+            [
+              "Recorded / Video Courses",
+              "Module 2",
+              "Included"
+            ],
+            [
+              "Video Streaming / Progress / Resume",
+              "Module 2",
+              "Included"
+            ],
+            [
+              "Interactive E-Books",
+              "Module 2",
+              "Included"
+            ],
+            [
+              "AI-Assisted E-Book Features",
+              "Module 2",
+              "Included"
+            ],
+            [
+              "AI Student Buddy - Learning Assistance",
+              "Module 2",
+              "Included"
+            ],
+            [
+              "Entrepreneur-Focused AI Assistance",
+              "-",
+              "Excluded"
+            ],
+            [
+              "Personalized Learning Recommendation System",
+              "Module 2",
+              "Included; dashboard recommendation widgets excluded"
+            ],
+            [
+              "Mock Tests / Assessments",
+              "Module 2",
+              "Included"
+            ],
+            [
+              "Scoreboard / Performance Analytics",
+              "Module 2",
+              "Included except weekly/monthly performance"
+            ],
+            [
+              "Leaderboards",
+              "Module 2",
+              "Included as performance feature; not gamification"
+            ],
+            [
+              "Digital Certificates",
+              "Module 2 + Module 3 controls",
+              "Included except Grade and Instructor Name"
+            ],
+            [
+              "Gamification / XP / Badges",
+              "-",
+              "Excluded"
+            ],
+            [
+              "Live Class System",
+              "-",
+              "Excluded"
+            ],
+            [
+              "Mentor System",
+              "-",
+              "Excluded"
+            ],
+            [
+              "Instructor Dashboard / Analytics",
+              "-",
+              "Excluded"
+            ],
+            [
+              "Admin Dashboard",
+              "Module 3",
+              "Included"
+            ],
+            [
+              "Platform Analytics",
+              "Module 3",
+              "Included except AI usage analytics"
+            ],
+            [
+              "Corporate / Organization Access",
+              "-",
+              "Excluded"
+            ],
+            [
+              "Security / Responsive UI / UX",
+              "Shared",
+              "Included"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "appendix-b-marked-exclusions-register",
+      "level": 1,
+      "title": "Appendix B. Marked Exclusions Register",
+      "blocks": [
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "This register reflects the red strike-through / cross-out markings visible in the supplied SOP and is included to prevent removed items from being reintroduced through interpretation."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "header": [
+            "Source Area",
+            "Marked Exclusion"
+          ],
+          "rows": [
+            [
+              "Project Objective",
+              "Live classes"
+            ],
+            [
+              "Project Objective",
+              "Instructor within 'Student, instructor and admin dashboards'"
+            ],
+            [
+              "Project Objective",
+              "Gamification and analytics"
+            ],
+            [
+              "Student Dashboard",
+              "Upcoming classes"
+            ],
+            [
+              "Student Dashboard",
+              "Recommended courses"
+            ],
+            [
+              "Student Dashboard",
+              "AI recommendations"
+            ],
+            [
+              "Course Types",
+              "Masterclasses"
+            ],
+            [
+              "Course Types",
+              "Workshops"
+            ],
+            [
+              "Course Types",
+              "Live courses"
+            ],
+            [
+              "Course Types",
+              "Cohort courses"
+            ],
+            [
+              "Course Types",
+              "Certification programs"
+            ],
+            [
+              "Course Types",
+              "Micro-learning courses"
+            ],
+            [
+              "Course Types",
+              "Premium programs"
+            ],
+            [
+              "AI Student Buddy",
+              "Entrepreneur-Focused Assistance block"
+            ],
+            [
+              "Performance Analytics",
+              "Weekly performance"
+            ],
+            [
+              "Performance Analytics",
+              "Monthly performance"
+            ],
+            [
+              "Gamification",
+              "Entire Gamification System section"
+            ],
+            [
+              "Certificate",
+              "Grade"
+            ],
+            [
+              "Certificate",
+              "Instructor name"
+            ],
+            [
+              "Live Classes",
+              "Entire Live Class System section"
+            ],
+            [
+              "Live-Class Continuation",
+              "Chat, Q&A, resource sharing, recorded-class links, replay access as part of live-class block"
+            ],
+            [
+              "Live-Class Note",
+              "Live-video provider implementation note"
+            ],
+            [
+              "Mentor System",
+              "Entire Mentor System section"
+            ],
+            [
+              "Instructor Dashboard",
+              "Entire Instructor Dashboard section"
+            ],
+            [
+              "Instructor Analytics",
+              "Entire Instructor Analytics section"
+            ],
+            [
+              "Admin User Management",
+              "Instructors"
+            ],
+            [
+              "Admin User Management",
+              "Mentors"
+            ],
+            [
+              "Platform Analytics",
+              "AI usage"
+            ],
+            [
+              "Corporate / Organization Access",
+              "Entire section"
+            ],
+            [
+              "Smart Search",
+              "Instructors"
+            ],
+            [
+              "Smart Search",
+              "Mentors"
+            ],
+            [
+              "Major Screens",
+              "Live classes"
+            ],
+            [
+              "Major Screens",
+              "Instructor dashboard"
+            ]
+          ]
+        },
+        {
+          "type": "para",
+          "runs": [
+            {
+              "text": "END OF STATEMENT OF WORK",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

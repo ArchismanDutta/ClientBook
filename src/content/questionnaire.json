@@ -1,0 +1,911 @@
+{
+  "brand": "Preneur Gate",
+  "title": "Client Onboarding Requirements",
+  "subtitle": "Accounts, Access, Company Details, Brand Assets, Content & Legal Inputs",
+  "details": [
+    {
+      "id": "details--project",
+      "label": "Project",
+      "kind": "text",
+      "value": "Preneur Gate"
+    },
+    {
+      "id": "details--client-company",
+      "label": "Client / Company",
+      "kind": "text"
+    },
+    {
+      "id": "details--date",
+      "label": "Date",
+      "kind": "date"
+    }
+  ],
+  "note": {
+    "label": "Security note",
+    "text": "Please do not enter passwords, API keys, private keys, recovery codes or card details in this document. For existing accounts, invite our team using the required role/access level. Secret values should be shared only through an approved secure password/secret-sharing method."
+  },
+  "sections": [
+    {
+      "id": "company-contact-and-billing-details",
+      "number": 1,
+      "title": "Company, Contact & Billing Details",
+      "questions": [
+        {
+          "id": "company-contact-and-billing-details--registered-company-name",
+          "number": 1,
+          "title": "Registered company name",
+          "prompt": "Official legal / registered business name to be used on invoices, agreements and project records.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "company-contact-and-billing-details--billing-address",
+          "number": 2,
+          "title": "Billing address",
+          "prompt": "Complete registered / billing address including city, state, postal code and country.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "company-contact-and-billing-details--tax-registration-number",
+          "number": 3,
+          "title": "Tax / registration number",
+          "prompt": "GST / VAT / Tax ID / Company Registration Number, if applicable.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "company-contact-and-billing-details--primary-contact",
+          "number": 4,
+          "title": "Primary contact",
+          "prompt": "Name, designation, email address and phone number of the main project contact.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "company-contact-and-billing-details--invoice-contact",
+          "number": 5,
+          "title": "Invoice contact",
+          "prompt": "Name and email address where invoices should be sent.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "company-contact-and-billing-details--finance-accounts-contact",
+          "number": 6,
+          "title": "Finance / accounts contact",
+          "prompt": "Name, email and phone number for payment or invoice-related queries, if different.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "company-contact-and-billing-details--purchase-order-details",
+          "number": 7,
+          "title": "Purchase order details",
+          "prompt": "Confirm whether a PO number or specific invoice reference is required before invoicing.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "company-contact-and-billing-details--official-website",
+          "number": 8,
+          "title": "Official website",
+          "prompt": "Current company / brand website URL, if available.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        }
+      ],
+      "fields": []
+    },
+    {
+      "id": "primary-project-email-and-github",
+      "number": 2,
+      "title": "Primary Project Email & GitHub",
+      "questions": [
+        {
+          "id": "primary-project-email-and-github--primary-project-email",
+          "number": 9,
+          "title": "Primary project email",
+          "prompt": "Provide one client-owned email address that should be used as the main ownership/contact email for development-related accounts.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "primary-project-email-and-github--github-status",
+          "number": 10,
+          "title": "GitHub status",
+          "prompt": "Confirm whether a GitHub account / organization is already created using the above email.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "primary-project-email-and-github--existing-github-details",
+          "number": 11,
+          "title": "Existing GitHub details",
+          "prompt": "If already created, provide the GitHub username / organization name and invite our development team with the required access.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "primary-project-email-and-github--github-creation",
+          "number": 12,
+          "title": "GitHub creation",
+          "prompt": "If not already created, confirm that a new GitHub account / organization can be created using the client-owned project email.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "primary-project-email-and-github--repository-ownership",
+          "number": 13,
+          "title": "Repository ownership",
+          "prompt": "Confirm that the final project repositories should remain under the client's GitHub ownership.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        }
+      ],
+      "fields": [],
+      "intro": "The goal is to ensure the source code and development accounts remain under client ownership from the beginning."
+    },
+    {
+      "id": "required-technical-accounts-and-access",
+      "number": 3,
+      "title": "Required Technical Accounts & Access",
+      "questions": [
+        {
+          "id": "required-technical-accounts-and-access--google-oauth-google-cloud",
+          "number": 14,
+          "title": "Google OAuth / Google Cloud",
+          "prompt": "Confirm whether a Google Cloud account/project already exists for Google Sign-In. If yes, provide the project/account details and invite our team. If not, confirm it can be created using the client-owned project email.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "required-technical-accounts-and-access--apple-developer-account",
+          "number": 15,
+          "title": "Apple Developer Account",
+          "prompt": "Confirm whether an active Apple Developer account already exists for Sign in with Apple. If yes, provide team access. If not, the client will need to create/activate the account.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "required-technical-accounts-and-access--aws-cloud-account",
+          "number": 16,
+          "title": "AWS / Cloud Account",
+          "prompt": "Confirm whether AWS or another cloud account is already available. If yes, provide account/project details and role-based access. If not, confirm that a new client-owned account can be created.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "required-technical-accounts-and-access--domain",
+          "number": 17,
+          "title": "Domain",
+          "prompt": "If the domain is already purchased, provide the domain name, registrar (e.g., GoDaddy, Namecheap, Cloudflare) and DNS access / technical contact. If not purchased, confirm the preferred domain name and who will purchase it.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "required-technical-accounts-and-access--cdn-media-delivery",
+          "number": 18,
+          "title": "CDN / Media Delivery",
+          "prompt": "Confirm whether the client already has a CDN/media service such as CloudFront, Cloudflare, Bunny, Mux, Vimeo or similar. If yes, provide account details/access. If not, we will recommend the appropriate option.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "required-technical-accounts-and-access--stripe",
+          "number": 19,
+          "title": "Stripe",
+          "prompt": "Confirm whether a Stripe account already exists. If yes, provide the account email and invite/access arrangement. If not, confirm whether the client will create the Stripe account and complete required business/bank verification. Use only if payment functionality is part of the approved implementation.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        }
+      ],
+      "fields": []
+    },
+    {
+      "id": "brand-identity-and-ui-assets",
+      "number": 4,
+      "title": "Brand Identity & UI Assets",
+      "questions": [
+        {
+          "id": "brand-identity-and-ui-assets--logo",
+          "number": 20,
+          "title": "Logo",
+          "prompt": "Provide the final logo in SVG/AI/EPS and transparent PNG formats, including light/dark variants if available.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "brand-identity-and-ui-assets--color-palette",
+          "number": 21,
+          "title": "Color palette",
+          "prompt": "Provide official primary, secondary and accent colors with HEX/RGB values.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "brand-identity-and-ui-assets--typography",
+          "number": 22,
+          "title": "Typography",
+          "prompt": "Provide official brand fonts or approved font names/links and licensing information.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "brand-identity-and-ui-assets--brand-guidelines",
+          "number": 23,
+          "title": "Brand guidelines",
+          "prompt": "Share the brand guideline / style guide document, if available.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "brand-identity-and-ui-assets--icons-illustrations",
+          "number": 24,
+          "title": "Icons / illustrations",
+          "prompt": "Provide any proprietary icon sets, illustrations or visual assets that must be used.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "brand-identity-and-ui-assets--image-style",
+          "number": 25,
+          "title": "Image style",
+          "prompt": "Share preferred photography/illustration style and any existing image library.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "brand-identity-and-ui-assets--ui-references",
+          "number": 26,
+          "title": "UI references",
+          "prompt": "Share 2-5 websites/apps the client likes as visual references and mention anything they specifically want to avoid.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "brand-identity-and-ui-assets--favicon-social-image",
+          "number": 27,
+          "title": "Favicon / social image",
+          "prompt": "Provide favicon, app icon and social-sharing image if already designed.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        }
+      ],
+      "fields": []
+    },
+    {
+      "id": "website-learning-and-content-inputs",
+      "number": 5,
+      "title": "Website, Learning & Content Inputs",
+      "questions": [
+        {
+          "id": "website-learning-and-content-inputs--website-copy",
+          "number": 28,
+          "title": "Website copy",
+          "prompt": "Final or draft copy for homepage, About, Contact, FAQs and other CMS pages.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "website-learning-and-content-inputs--course-content",
+          "number": 29,
+          "title": "Course content",
+          "prompt": "Course titles, descriptions, categories, lesson structure, videos, PDFs, presentations, resources and thumbnails.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "website-learning-and-content-inputs--e-books",
+          "number": 30,
+          "title": "E-books",
+          "prompt": "E-book files, covers, titles, descriptions, authors, categories and download permissions.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "website-learning-and-content-inputs--assessments",
+          "number": 31,
+          "title": "Assessments",
+          "prompt": "Question banks, answers, scoring rules, pass percentage and assessment instructions.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "website-learning-and-content-inputs--certificates",
+          "number": 32,
+          "title": "Certificates",
+          "prompt": "Certificate template/design, authorized signatory assets and certificate wording.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "website-learning-and-content-inputs--community-setup",
+          "number": 33,
+          "title": "Community setup",
+          "prompt": "Initial community groups/categories, moderation rules and any seed posts/content required before launch.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "website-learning-and-content-inputs--support-information",
+          "number": 34,
+          "title": "Support information",
+          "prompt": "Support email, phone, business address and social media links.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        }
+      ],
+      "fields": []
+    },
+    {
+      "id": "legal-privacy-and-policy-documents",
+      "number": 6,
+      "title": "Legal, Privacy & Policy Documents",
+      "questions": [
+        {
+          "id": "legal-privacy-and-policy-documents--privacy-policy",
+          "number": 35,
+          "title": "Privacy Policy",
+          "prompt": "Client-approved Privacy Policy or confirmation of who will prepare/approve it.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "legal-privacy-and-policy-documents--terms-and-conditions",
+          "number": 36,
+          "title": "Terms & Conditions",
+          "prompt": "Client-approved Terms of Use / Terms & Conditions.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "legal-privacy-and-policy-documents--cookie-policy",
+          "number": 37,
+          "title": "Cookie Policy",
+          "prompt": "Cookie/consent wording if analytics or marketing trackers are used.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "legal-privacy-and-policy-documents--community-guidelines",
+          "number": 38,
+          "title": "Community Guidelines",
+          "prompt": "Rules for community posts, moderation, blocking/reporting and prohibited content.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "legal-privacy-and-policy-documents--ai-disclaimer",
+          "number": 39,
+          "title": "AI Disclaimer",
+          "prompt": "Any required disclaimer or acceptable-use wording for AI-assisted learning features.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        },
+        {
+          "id": "legal-privacy-and-policy-documents--content-rights",
+          "number": 40,
+          "title": "Content Rights",
+          "prompt": "Confirmation that the client has the rights to upload/use course videos, e-books, PDFs, images and other learning material.",
+          "options": [
+            {
+              "id": "ready",
+              "label": "Ready"
+            },
+            {
+              "id": "pending",
+              "label": "Pending"
+            },
+            {
+              "id": "n-a",
+              "label": "N/A"
+            }
+          ]
+        }
+      ],
+      "fields": []
+    },
+    {
+      "id": "client-confirmation",
+      "number": 7,
+      "title": "Client Confirmation",
+      "questions": [],
+      "fields": [
+        {
+          "id": "client-confirmation--client-representative",
+          "label": "Client Representative",
+          "kind": "text"
+        },
+        {
+          "id": "client-confirmation--role-designation",
+          "label": "Role / Designation",
+          "kind": "text"
+        },
+        {
+          "id": "client-confirmation--date",
+          "label": "Date",
+          "kind": "date"
+        },
+        {
+          "id": "client-confirmation--approval-signature",
+          "label": "Approval / Signature",
+          "kind": "signature"
+        }
+      ],
+      "intro": "Please provide the above information before or during project onboarding so the development team can create, configure and connect the required client-owned services without delaying implementation."
+    }
+  ],
+  "meta": {
+    "source": "Preneur_Gate_Client_Onboarding_Questionnaire_Revised.docx",
+    "generatedAt": "2026-09-22T13:48:17.100Z"
+  }
+}

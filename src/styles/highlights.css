@@ -1,0 +1,254 @@
+/* ============ Highlight marks in the text ============ */
+.hl {
+  background-color: transparent;
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 1px;
+  cursor: pointer;
+  transition: filter .12s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.hl:hover { filter: brightness(.98); }
+
+.hl-yellow { background-color: color-mix(in srgb, var(--yellow) 55%, transparent); }
+.hl-pink   { background-color: color-mix(in srgb, var(--pink)   45%, transparent); color: var(--ink); }
+.hl-blue   { background-color: color-mix(in srgb, var(--blue)   35%, transparent); }
+.hl-mint   { background-color: color-mix(in srgb, var(--mint)   60%, transparent); }
+
+/* Small dot on highlights that carry a comment. */
+.hl.has-comment {
+  position: relative;
+}
+.hl.has-comment::after {
+  content: '';
+  position: absolute;
+  top: -3px; right: -3px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 2px var(--paper-3);
+}
+
+/* Cursor cue while highlighting mode is on. */
+.para.is-highlight-mode {
+  cursor: text;
+}
+
+/* Ensure text remains selectable while highlight mode is on.
+   (page-flip sets user-select: none on its own container.) */
+body[data-highlight-mode='on'] .book-flipper,
+body[data-highlight-mode='on'] .book-flipper * {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+body[data-highlight-mode='on'] .book-flipper .para,
+body[data-highlight-mode='on'] .book-flipper .lede,
+body[data-highlight-mode='on'] .book-flipper .callout,
+body[data-highlight-mode='on'] .book-flipper .list,
+body[data-highlight-mode='on'] .book-flipper .table,
+body[data-highlight-mode='on'] .book-flipper .toc-title,
+body[data-highlight-mode='on'] .book-flipper .h1,
+body[data-highlight-mode='on'] .book-flipper .h2 {
+  cursor: text;
+}
+
+/* ============ Highlighter (in the bottom reading bar) ============ */
+.hl-toolbar { position: relative; display: flex; align-items: center; }
+.controls .hl-toolbar-toggle { gap: 7px; }
+.hl-toolbar-toggle svg { flex: none; transform: translateY(-1px); }
+.hl-toolbar-label { line-height: 1; }
+.controls .hl-toolbar.is-active .hl-toolbar-toggle,
+.controls .hl-toolbar.is-active .hl-toolbar-toggle:hover { background: var(--pink); color: #fff; }
+.hl-toolbar-count {
+  min-width: 16px; height: 16px; padding: 0 4px;
+  border-radius: 999px; background: var(--pink); color: #fff;
+  font-size: 9px; font-weight: 700; line-height: 16px; text-align: center;
+}
+.hl-toolbar.is-active .hl-toolbar-count { background: #fff; color: var(--pink); }
+/* Colour choices float just above the bar while highlighting is on. */
+.hl-toolbar-tray {
+  position: absolute; left: 50%; bottom: calc(100% + 14px);
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px; border-radius: 999px;
+  background: #211e19f5; color: var(--paper-3);
+  box-shadow: 0 8px 24px #34261033; backdrop-filter: blur(12px);
+  white-space: nowrap;
+  transform: translateX(-50%);
+  animation: hl-tray-in .2s ease both;
+}
+@keyframes hl-tray-in { from { opacity: 0; transform: translate(-50%, 6px); } }
+.hl-toolbar-colors { display: inline-flex; gap: 6px; }
+.hl-swatch {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.6);
+  padding: 0; cursor: pointer;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.hl-swatch:hover { transform: scale(1.08); }
+.hl-swatch.is-selected {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px rgba(20,19,16,.35);
+}
+.hl-swatch-yellow { background: var(--yellow); }
+.hl-swatch-pink   { background: var(--pink); }
+.hl-swatch-blue   { background: var(--blue); }
+.hl-swatch-mint   { background: var(--mint); }
+/* The reading bar styles every button; keep the swatches small and coloured. */
+.controls .hl-toolbar-tray button.hl-swatch { min-width: 0; min-height: 0; width: 20px; height: 20px; padding: 0; border-radius: 50%; }
+.controls .hl-toolbar-tray button.hl-swatch-yellow { background: var(--yellow); }
+.controls .hl-toolbar-tray button.hl-swatch-pink   { background: var(--pink); }
+.controls .hl-toolbar-tray button.hl-swatch-blue   { background: var(--blue); }
+.controls .hl-toolbar-tray button.hl-swatch-mint   { background: var(--mint); }
+
+.hl-toolbar-meta {
+  padding-left: 10px;
+  border-left: 1px solid rgba(255,255,255,.25);
+  opacity: .85;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@media (max-width: 599px) {
+  .hl-toolbar-label { display: none; }
+  /* On narrow screens centre the colour tray over the whole bar. */
+  .hl-toolbar { position: static; }
+}
+
+/* ============ Comment popup ============ */
+.comment-popup {
+  width: min(340px, calc(100vw - 24px));
+  z-index: 40;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,.015) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, var(--paper-3) 0%, var(--paper) 100%);
+  color: var(--ink);
+  border-radius: 4px 14px 14px 14px;
+  padding: 0;
+  box-shadow:
+    0 24px 56px -20px rgba(52,38,16,.45),
+    0 4px 12px -4px rgba(52,38,16,.2),
+    inset 0 1px 0 rgba(255,255,255,.5);
+  font-family: var(--font-ui);
+  border: 1px solid rgba(20,19,16,.1);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  animation: popup-enter .25s cubic-bezier(.22,.61,.36,1) both;
+}
+@keyframes popup-enter {
+  from { opacity: 0; transform: translateY(6px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Decorative top edge */
+.comment-popup::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--yellow) 50%, var(--blue));
+  flex-shrink: 0;
+}
+
+.comment-popup-quote {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 14px 16px 12px;
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.4;
+  position: relative;
+}
+.comment-popup-quote::before {
+  content: '\201C';
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 1;
+  opacity: .3;
+  flex-shrink: 0;
+  margin-top: -4px;
+}
+.comment-popup-quote .hl-swatch {
+  flex: 0 0 auto;
+  width: 10px; height: 10px;
+  margin-top: 5px;
+  border-width: 1.5px;
+  border-color: rgba(255,255,255,.4);
+}
+.comment-popup-input {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  padding: 12px 16px;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid rgba(20,19,16,.08);
+  background: var(--paper-4);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  line-height: 1.55;
+  outline: none;
+  transition: background .15s ease, box-shadow .15s ease;
+}
+.comment-popup-input::placeholder {
+  color: var(--ink-soft);
+  opacity: .45;
+  font-style: italic;
+  font-family: var(--font-display);
+  letter-spacing: .01em;
+}
+.comment-popup-input:focus {
+  background: var(--paper-3);
+  box-shadow: inset 0 2px 8px -4px rgba(52,38,16,.1);
+}
+.comment-popup-actions {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 14px;
+}
+.comment-popup-time {
+  flex: 1 1 auto;
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  opacity: .4;
+  font-weight: 600;
+}
+.comment-popup-btn {
+  background: var(--ink);
+  color: var(--paper);
+  border: 0;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter .12s ease, transform .12s ease;
+}
+.comment-popup-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+.comment-popup-btn.primary {
+  background: var(--pink);
+  color: #fff;
+  box-shadow: 0 4px 10px -2px rgba(255,47,138,.3), inset 0 -2px 0 rgba(0,0,0,.12);
+}
+.comment-popup-btn.danger {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid rgba(20,19,16,.15);
+  box-shadow: none;
+}
+.comment-popup-btn.danger:hover {
+  background: rgba(255,47,138,.06);
+  border-color: var(--pink);
+  color: var(--pink);
+  transform: translateY(-1px);
+}
+
