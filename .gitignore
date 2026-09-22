@@ -1,0 +1,8 @@
+node_modules
+dist
+.DS_Store
+.env.local
+.superpowers/
+# Keep book.json checked in so builds don't require running build:content first
+!src/content/book.json
+public/assets/book-images/

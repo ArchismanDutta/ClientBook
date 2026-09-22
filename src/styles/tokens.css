@@ -1,0 +1,34 @@
+:root {
+  /* Paper & ink */
+  --paper: #f2ead9;
+  --paper-2: #ecdcc0;
+  --paper-3: #fbf5e8;
+  --paper-4: #f2e9d3;
+  --ink: #141310;
+  --ink-soft: #3a352c;
+  --stage: #dfd7c6;
+
+  /* Accents */
+  --blue: #1a5cff;
+  --pink: #ff2f8a;
+  --yellow: #ffd400;
+  --mint: #7fe0ba;
+
+  /* Type stacks */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-ui: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Type scale (interior page reference) */
+  --fs-h1: 34px;
+  --fs-lede: 14px;
+  --fs-body: 12.5px;
+  --fs-small: 10px;
+
+  /* Spacing */
+  --page-pad-x: 42px;
+  --page-pad-y: 40px;
+
+  /* Motion */
+  --flip-duration: 900ms;
+}
