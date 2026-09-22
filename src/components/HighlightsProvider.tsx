@@ -80,17 +80,10 @@ export function HighlightsProvider({ children }: { children: ReactNode }) {
     function absorb(e: Event) {
       const target = e.target as HTMLElement | null;
       if (!target) return;
-      // Never absorb events on existing highlight marks — those must reach
-      // React so the mark's onClick can open the comment popup.
-      if (target.closest('mark.hl')) return;
       if (target.closest(TEXT_SELECTOR)) {
-        e.stopImmediatePropagation();
+        e.stopPropagation();
       }
     }
-    // mouseup / touchend are intentionally NOT absorbed — React needs them
-    // to reach Paragraph's onMouseUp handler so the highlight can be created.
-    // Absorbing mousedown alone is enough to kill page-flip's drag/click-to-turn
-    // (without a mousedown, page-flip never registers a click or drag start).
     const events: (keyof DocumentEventMap)[] = ['mousedown', 'click', 'touchstart'];
     for (const ev of events) document.addEventListener(ev, absorb, true);
     return () => {

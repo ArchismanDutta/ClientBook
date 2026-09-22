@@ -70,11 +70,12 @@ export function Paragraph({ block }: { block: ParaBlock }) {
 
     // Prevent the click-to-flip behavior from firing right after the selection.
     e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
   };
 
   // In highlight mode, absorb clicks so page-flip's click-to-turn does not fire.
   const onClickAbsorb = mode
-    ? (e: MouseEvent<HTMLParagraphElement>) => e.stopPropagation()
+    ? (e: MouseEvent<HTMLParagraphElement>) => { e.stopPropagation(); e.nativeEvent.stopImmediatePropagation(); }
     : undefined;
 
   return (
@@ -103,6 +104,7 @@ function renderSegment(
     const hl = seg.hl;
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
       e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
       const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
       openPopup({ highlightId: hl.id, anchor: rect });
     };
