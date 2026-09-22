@@ -1,7 +1,6 @@
 import type { Book } from '../types/book';
 
 export function BackCover({ book, totalPages }: { book: Book; totalPages: number }) {
-  const genDate = new Date(book.meta.generatedAt).toISOString().slice(0, 10);
   return (
     <div className="cover" style={{ borderRadius: '16px 8px 8px 16px' }}>
       <div style={{
@@ -18,7 +17,6 @@ export function BackCover({ book, totalPages }: { book: Book; totalPages: number
         <p>{book.subtitle}</p>
         <p>Version {book.meta.version} · MMXXVI</p>
         <p>{totalPages} pages</p>
-        <p style={{ marginTop: 24, opacity: .5 }}>Generated from source DOCX {genDate}</p>
       </div>
     </div>
   );

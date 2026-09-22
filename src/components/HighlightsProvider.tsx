@@ -101,6 +101,28 @@ export function HighlightsProvider({ children }: { children: ReactNode }) {
     };
   }, [mode]);
 
+  // Clicking an existing highlight opens its note and must never turn the page —
+  // with or without highlight mode on. page-flip starts a flip from mousedown on
+  // its own container, so the click is claimed here, in the capture phase, before
+  // it reaches either page-flip or the mark's own React handler.
+  useEffect(() => {
+    function onMark(e: Event) {
+      const target = e.target as HTMLElement | null;
+      const mark = target?.closest?.('.book-flipper mark.hl') as HTMLElement | null;
+      if (!mark) return;
+      e.stopPropagation();
+      const id = mark.dataset.highlightId;
+      // A drag that ends inside a mark is a new selection, not a click on the old one.
+      if (e.type !== 'click' || !id || !window.getSelection()?.isCollapsed) return;
+      setPopup({ highlightId: id, anchor: mark.getBoundingClientRect() });
+    }
+    const events: (keyof DocumentEventMap)[] = ['mousedown', 'click', 'touchstart'];
+    for (const ev of events) document.addEventListener(ev, onMark, true);
+    return () => {
+      for (const ev of events) document.removeEventListener(ev, onMark, true);
+    };
+  }, []);
+
   // Turn a finished selection into highlights: one per text unit it touches,
   // grouped when the selection spans several (e.g. a heading and a paragraph).
   useEffect(() => {

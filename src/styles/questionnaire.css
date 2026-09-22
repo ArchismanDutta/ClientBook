@@ -379,7 +379,6 @@
   font-family: var(--font-ui); font-size: 10px;
   letter-spacing: .28em; text-transform: uppercase; line-height: 2; opacity: .55;
 }
-.q-back-small { margin-top: 24px; opacity: .5; }
 
 @media (max-width: 599px) {
   .reader-tools { top: 10px; right: 12px; gap: 6px; }

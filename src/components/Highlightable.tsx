@@ -1,4 +1,4 @@
-import { useMemo, type CSSProperties, type MouseEvent, type ReactNode } from 'react';
+import { useMemo, type CSSProperties, type ReactNode } from 'react';
 import type { InlineRun } from '../types/book';
 import type { Highlight } from '../lib/highlights/types';
 import { makeHlKey } from '../lib/highlights/store';
@@ -37,7 +37,7 @@ export function Highlightable({
   attrs?: Record<string, string | undefined>;
 }) {
   const pageCtx = usePageContext();
-  const { mode, openPopup, getForKey } = useHighlights();
+  const { mode, getForKey } = useHighlights();
 
   const plainText = useMemo(() => runs.map(r => r.text).join(''), [runs]);
   // Paragraphs keep the unscoped key so highlights saved before scopes existed still match.
@@ -50,7 +50,7 @@ export function Highlightable({
 
   return (
     <Tag className={classes} style={style} data-hl-key={hlKey || undefined} {...attrs}>
-      {segments.map((seg, i) => renderSegment(seg, i, openPopup))}
+      {segments.map(renderSegment)}
     </Tag>
   );
 }
@@ -59,11 +59,7 @@ export function textRuns(text: string): InlineRun[] {
   return [{ text }];
 }
 
-function renderSegment(
-  seg: Segment,
-  i: number,
-  openPopup: ReturnType<typeof useHighlights>['openPopup'],
-) {
+function renderSegment(seg: Segment, i: number) {
   let node: ReactNode = seg.text;
   if (seg.bold) node = <strong>{node}</strong>;
   if (seg.italic) node = <em>{node}</em>;
@@ -71,18 +67,13 @@ function renderSegment(
 
   if (seg.hl) {
     const hl = seg.hl;
-    const handleClick = (e: MouseEvent<HTMLElement>) => {
-      e.stopPropagation();
-      e.nativeEvent.stopImmediatePropagation();
-      const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-      openPopup({ highlightId: hl.id, anchor: rect });
-    };
+    // Clicks on marks are handled by HighlightsProvider, which claims them
+    // before page-flip can read them as a page turn.
     return (
       <mark
         key={i}
         className={`hl hl-${hl.color}${hl.comment ? ' has-comment' : ''}`}
         data-highlight-id={hl.id}
-        onClick={handleClick}
         title={hl.comment ? hl.comment.text : 'Click to add a note'}
       >
         {node}

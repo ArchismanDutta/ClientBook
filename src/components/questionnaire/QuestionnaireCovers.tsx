@@ -43,7 +43,6 @@ export function QuestionnaireCover({ questionnaire }: { questionnaire: Questionn
 
 export function QuestionnaireBackCover({ questionnaire }: { questionnaire: Questionnaire }) {
   const questions = allQuestions(questionnaire.sections).length;
-  const generated = questionnaire.meta.generatedAt.slice(0, 10);
   return (
     <div className="cover q-back">
       <div className="q-back-inner">
@@ -51,7 +50,6 @@ export function QuestionnaireBackCover({ questionnaire }: { questionnaire: Quest
         <p>{questionnaire.title}</p>
         <p>{questionnaire.sections.length} sections · {questions} questions</p>
         <p>Answers stay saved on this device</p>
-        <p className="q-back-small">Generated from source DOCX {generated}</p>
       </div>
     </div>
   );

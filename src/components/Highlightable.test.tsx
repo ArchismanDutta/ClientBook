@@ -1,14 +1,20 @@
 import { act, render } from '@testing-library/react';
-import { useEffect } from 'react';
-import { describe, expect, it, beforeEach } from 'vitest';
+import { useEffect, useRef } from 'react';
+import { describe, expect, it, beforeEach, vi } from 'vitest';
+import { CommentPopupHost } from './CommentPopup';
 import { HighlightsProvider, useHighlights } from './HighlightsProvider';
 import { PageContextProvider } from './PageContext';
 import { BlockRenderer } from './blocks/BlockRenderer';
 import type { Block } from '../types/book';
 
+// Highlight mode starts on; tests can turn it off through this handle.
+const modeRef: { current: ((v: boolean) => void) | null } = { current: null };
+
 function HighlightModeOn() {
   const { setMode } = useHighlights();
-  useEffect(() => setMode(true), [setMode]);
+  const started = useRef(false);
+  modeRef.current = setMode;
+  useEffect(() => { if (!started.current) { started.current = true; setMode(true); } }, [setMode]);
   return null;
 }
 
@@ -29,6 +35,7 @@ function renderBook() {
           {blocks.map((b, i) => <BlockRenderer key={i} block={b} />)}
         </PageContextProvider>
       </div>
+      <CommentPopupHost />
     </HighlightsProvider>,
   );
 }
@@ -79,6 +86,27 @@ describe('highlighting any book content', () => {
     select(node, 0, node, 3);
     expect(cells[0].querySelector('mark')).toBeNull();
     expect(cells[1].querySelector('mark')?.textContent).toBe('Yes');
+  });
+
+  it.each([true, false])('opens the note on a click without turning the page (highlight mode: %s)', (modeOn) => {
+    const { container } = renderBook();
+    const node = textNode(container, 'Plain intro');
+    select(node, 0, node, 5);
+    if (!modeOn) act(() => { modeRef.current!(false); });
+
+    // page-flip starts a page turn from mousedown on its own container.
+    const flipper = container.querySelector('.book-flipper')!;
+    const flip = vi.fn();
+    flipper.addEventListener('mousedown', flip);
+    flipper.addEventListener('click', flip);
+
+    const mark = container.querySelector('mark.hl')!;
+    act(() => {
+      mark.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+      mark.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+    expect(flip).not.toHaveBeenCalled();
+    expect(document.querySelector('.comment-popup')).not.toBeNull();
   });
 
   it('splits a selection across blocks into one grouped highlight', () => {
