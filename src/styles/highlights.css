@@ -31,7 +31,7 @@
 }
 
 /* Cursor cue while highlighting mode is on. */
-.para.is-highlight-mode {
+.is-highlight-mode {
   cursor: text;
 }
 
@@ -49,7 +49,8 @@ body[data-highlight-mode='on'] .book-flipper .list,
 body[data-highlight-mode='on'] .book-flipper .table,
 body[data-highlight-mode='on'] .book-flipper .toc-title,
 body[data-highlight-mode='on'] .book-flipper .h1,
-body[data-highlight-mode='on'] .book-flipper .h2 {
+body[data-highlight-mode='on'] .book-flipper .h2,
+body[data-highlight-mode='on'] .book-flipper [data-hl-key] {
   cursor: text;
 }
 

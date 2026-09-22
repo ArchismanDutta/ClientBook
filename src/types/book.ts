@@ -6,7 +6,10 @@ export type InlineRun = {
 };
 
 export type ParaBlock = { type: 'para'; runs: InlineRun[] };
-export type ListBlock = { type: 'list'; style: 'bullet' | 'number'; items: InlineRun[][]; start?: number };
+export type ListBlock = {
+  type: 'list'; style: 'bullet' | 'number'; items: InlineRun[][]; start?: number;
+  continued?: boolean; // the first item carries on from the previous page, so it shows no marker
+};
 export type TableBlock = { type: 'table'; header?: string[]; rows: string[][] };
 export type ImageBlock = { type: 'image'; src: string; alt: string; w: number; h: number };
 export type CalloutBlock = { type: 'callout'; label: string; body: InlineRun[] };

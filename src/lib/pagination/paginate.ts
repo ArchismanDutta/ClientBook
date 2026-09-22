@@ -13,6 +13,62 @@ function sliceRuns(runs: InlineRun[], start: number, end: number): InlineRun[] {
   });
 }
 
+// Same as sliceRuns, for the cells of a table row read as one continuous text.
+function sliceCells(cells: string[], start: number, end: number): string[] {
+  let offset = 0;
+  return cells.map(cell => {
+    const from = Math.max(0, start - offset);
+    const to = Math.min(cell.length, end - offset);
+    offset += cell.length;
+    return to > from ? cell.slice(from, to) : '';
+  });
+}
+
+const wordEnds = (text: string) => [...text.matchAll(/\S+\s*/g)].map(match => match.index! + match[0].length);
+
+// The largest n in 1..count-1 whose first part still fits, or null.
+function bestSplit(count: number, split: (n: number) => [Block, Block], fits: (block: Block) => boolean) {
+  let low = 1, high = count - 1, best = 0;
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    if (fits(split(mid)[0])) { best = mid; low = mid + 1; }
+    else high = mid - 1;
+  }
+  return best ? split(best) : null;
+}
+
+// Split one indivisible unit (a single table row, list item or callout) at a word,
+// so content taller than a page continues overleaf instead of scrolling.
+function splitWithinUnit(block: Block, fits: (block: Block) => boolean): [Block, Block] | null {
+  if (block.type === 'table' && block.rows.length === 1) {
+    const cells = block.rows[0];
+    const total = cells.join('').length;
+    const ends = wordEnds(cells.join(''));
+    return bestSplit(ends.length, n => [
+      { ...block, rows: [sliceCells(cells, 0, ends[n - 1])] },
+      { ...block, rows: [sliceCells(cells, ends[n - 1], total)] },
+    ], fits);
+  }
+  if (block.type === 'list' && block.items.length === 1) {
+    const runs = block.items[0];
+    const total = runs.map(run => run.text).join('').length;
+    const ends = wordEnds(runs.map(run => run.text).join(''));
+    return bestSplit(ends.length, n => [
+      { ...block, items: [sliceRuns(runs, 0, ends[n - 1])] },
+      { ...block, items: [sliceRuns(runs, ends[n - 1], total)], continued: true },
+    ], fits);
+  }
+  if (block.type === 'callout') {
+    const total = block.body.map(run => run.text).join('').length;
+    const ends = wordEnds(block.body.map(run => run.text).join(''));
+    return bestSplit(ends.length, n => [
+      { ...block, body: sliceRuns(block.body, 0, ends[n - 1]) },
+      { ...block, body: sliceRuns(block.body, ends[n - 1], total) },
+    ], fits);
+  }
+  return null;
+}
+
 function splitToFit(block: Block, fits: (block: Block) => boolean): [Block, Block] | null {
   let count: number;
   let split: (n: number) => [Block, Block];
@@ -27,7 +83,7 @@ function splitToFit(block: Block, fits: (block: Block) => boolean): [Block, Bloc
     split = n => [{ ...block, rows: block.rows.slice(0, n) }, { ...block, rows: block.rows.slice(n) }];
   } else if (block.type === 'para') {
     const text = block.runs.map(run => run.text).join('');
-    const ends = [...text.matchAll(/\S+\s*/g)].map(match => match.index! + match[0].length);
+    const ends = wordEnds(text);
     count = ends.length;
     split = n => [
       { ...block, runs: sliceRuns(block.runs, 0, ends[n - 1]) },
@@ -35,13 +91,7 @@ function splitToFit(block: Block, fits: (block: Block) => boolean): [Block, Bloc
     ];
   } else return null;
 
-  let low = 1, high = count - 1, best = 0;
-  while (low <= high) {
-    const mid = Math.floor((low + high) / 2);
-    if (fits(split(mid)[0])) { best = mid; low = mid + 1; }
-    else high = mid - 1;
-  }
-  return best ? split(best) : null;
+  return bestSplit(count, split, fits);
 }
 
 export function paginate(sections: Section[], dims: PageDims): Page[] {
@@ -82,7 +132,7 @@ export function paginate(sections: Section[], dims: PageDims): Page[] {
           commit();
           pending.unshift(...headings, block);
         } else {
-          // A single unbreakable item (e.g. a tall table row) stays accessible.
+          // Not even one row or item fits beneath the headings.
           let first = block;
           if (block.type === 'table' && block.rows.length > 1) {
             first = { ...block, rows: block.rows.slice(0, 1) };
@@ -91,7 +141,28 @@ export function paginate(sections: Section[], dims: PageDims): Page[] {
             first = { ...block, items: block.items.slice(0, 1) };
             pending.unshift({ ...block, items: block.items.slice(1), start: (block.start ?? 1) + 1 });
           }
-          blocks = [...headings, first];
+          // A chapter title may stand alone on its opener page if the row then fits overleaf.
+          if (opener && headings.length && fits([first])) {
+            blocks = headings;
+            commit();
+            pending.unshift(first);
+            continue;
+          }
+          const within = splitWithinUnit(first, part => fits([...headings, part]));
+          if (within) {
+            blocks = [...headings, within[0]];
+            commit();
+            pending.unshift(within[1]);
+            continue;
+          }
+          if (headings.length) {
+            blocks = headings;
+            commit();
+            pending.unshift(first);
+            continue;
+          }
+          // Last resort for content that cannot be divided at all: keep it reachable.
+          blocks = [first];
           commit(true);
         }
       }

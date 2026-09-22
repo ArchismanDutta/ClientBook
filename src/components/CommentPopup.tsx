@@ -3,7 +3,7 @@ import { useHighlights } from './HighlightsProvider';
 import { relativeTime } from '../lib/relativeTime';
 
 export function CommentPopupHost() {
-  const { popup, closePopup, getById, updateComment, removeComment, removeHighlight } = useHighlights();
+  const { popup, closePopup, getById, getGroup, updateComment, removeComment, removeHighlight } = useHighlights();
   const [draft, setDraft] = useState('');
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
@@ -58,6 +58,7 @@ export function CommentPopupHost() {
   };
 
   const lastEdited = highlight.comment ? relativeTime(highlight.comment.lastEditedAt) : null;
+  const quote = getGroup(highlight.id).map(h => h.text.trim()).join(' ');
 
   return (
     <div
@@ -74,7 +75,7 @@ export function CommentPopupHost() {
     >
       <div className="comment-popup-quote">
         <span className={`hl-swatch hl-swatch-${highlight.color}`} aria-hidden />
-        <span>“{highlight.text.length > 90 ? highlight.text.slice(0, 90) + '…' : highlight.text}”</span>
+        <span>“{quote.length > 90 ? quote.slice(0, 90) + '…' : quote}”</span>
       </div>
       <textarea
         className="comment-popup-input"

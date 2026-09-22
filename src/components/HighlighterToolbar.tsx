@@ -7,7 +7,10 @@ const COLORS: HighlightColor[] = ['yellow', 'pink', 'blue', 'mint'];
 // choices and the highlight count float just above the bar.
 export function HighlighterToolbar() {
   const { mode, setMode, color, setColor, highlights } = useHighlights();
-  const commentCount = highlights.filter(h => h.comment).length;
+  // A selection spanning several blocks is stored in pieces; count it once.
+  const selections = highlights.filter(h => !h.groupId || highlights.find(o => o.groupId === h.groupId) === h);
+  const highlightCount = selections.length;
+  const commentCount = selections.filter(h => h.comment).length;
 
   return (
     <div className={`hl-toolbar ${mode ? 'is-active' : ''}`}>
@@ -22,7 +25,7 @@ export function HighlighterToolbar() {
           <path d="M11 6l7 7" />
         </svg>
         <span className="hl-toolbar-label">{mode ? 'Highlighting' : 'Highlighter'}</span>
-        {highlights.length > 0 && <span className="hl-toolbar-count" aria-hidden="true">{highlights.length}</span>}
+        {highlightCount > 0 && <span className="hl-toolbar-count" aria-hidden="true">{highlightCount}</span>}
       </button>
 
       {mode && (
@@ -39,9 +42,9 @@ export function HighlighterToolbar() {
               />
             ))}
           </div>
-          {highlights.length > 0 && (
+          {highlightCount > 0 && (
             <div className="hl-toolbar-meta">
-              <span>{highlights.length} highlight{highlights.length === 1 ? '' : 's'}</span>
+              <span>{highlightCount} highlight{highlightCount === 1 ? '' : 's'}</span>
               {commentCount > 0 && <span> · {commentCount} note{commentCount === 1 ? '' : 's'}</span>}
             </div>
           )}

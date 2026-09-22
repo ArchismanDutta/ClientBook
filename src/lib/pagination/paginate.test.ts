@@ -75,4 +75,32 @@ describe('responsive page breaks', () => {
     ] }], dims);
     for (const page of pages) expect(page.blocks.at(-1)?.type).not.toBe('heading');
   });
+
+  it('gives a chapter title its own page rather than scrolling when the first row only fits overleaf', () => {
+    const rows = [['Module 1', 'Word '.repeat(84)], ['Module 2', 'Short']];
+    const pages = paginate([{ id: 'ch', title: 'Chapter', level: 1, blocks: [{ type: 'table', header: ['A', 'B'], rows }] }], dims);
+    expect(pages.some(p => p.overflow)).toBe(false);
+    expect(pages[0].blocks.map(b => b.type)).toEqual(['heading']);
+    expect(pages.flatMap(p => p.blocks.flatMap(b => (b.type === 'table' ? b.rows : [])))).toEqual(rows);
+  });
+
+  it('continues a table row taller than a page overleaf instead of scrolling', () => {
+    const row = ['Module 1', 'Purpose '.repeat(200), 'Areas '.repeat(200)];
+    const pages = paginate([{ id: 'tall', title: 'Tall', level: 1, blocks: [{ type: 'table', header: ['A', 'B', 'C'], rows: [row] }] }], dims);
+    expect(pages.length).toBeGreaterThan(2);
+    expect(pages.some(p => p.overflow)).toBe(false);
+    const parts = pages.flatMap(p => p.blocks.flatMap(b => (b.type === 'table' ? b.rows : [])));
+    expect(parts.map(r => r.join('')).join('')).toBe(row.join(''));
+  });
+
+  it('continues a list item taller than a page without repeating its marker', () => {
+    const item = [{ text: 'A very long requirement. '.repeat(150) }];
+    const pages = paginate([{ id: 'li', title: 'Long', level: 1, blocks: [{ type: 'list', style: 'number', start: 4, items: [item] }] }], dims);
+    const lists = pages.flatMap(p => p.blocks.filter(b => b.type === 'list'));
+    expect(pages.some(p => p.overflow)).toBe(false);
+    expect(lists.length).toBeGreaterThan(1);
+    expect(lists.map(l => l.continued ?? false)).toEqual([false, ...lists.slice(1).map(() => true)]);
+    expect(lists.every(l => l.start === 4)).toBe(true);
+    expect(lists.flatMap(l => l.items.flat()).map(r => r.text).join('')).toBe(item[0].text);
+  });
 });

@@ -5,7 +5,7 @@
     "version": "1.1",
     "date": "22 September 2026",
     "imprint": "Preneur Gate Press",
-    "generatedAt": "2026-09-22T11:56:17.401Z"
+    "generatedAt": "2026-09-22T15:55:15.990Z"
   },
   "sections": [
     {
@@ -193,18 +193,14 @@
             ],
             [
               "11",
-              "Assumptions, Dependencies & Clarifications"
-            ],
-            [
-              "12",
               "Explicit Out-of-Scope Items"
             ],
             [
-              "13",
+              "12",
               "Change Control & Scope Governance"
             ],
             [
-              "14",
+              "13",
               "Final Delivery & Sign-Off"
             ],
             [
@@ -313,7 +309,7 @@
           "label": "IMPORTANT",
           "body": [
             {
-              "text": "The three modules are not sequential phase deliveries. Development, review and QA will be parallelized, followed by one integrated UAT and one combined production delivery. The contractual implementation window should be read as 45-60 calendar days from formal commencement, subject to the dependencies and response times stated in this SOW."
+              "text": "The three modules are not sequential phase deliveries. Development, review and QA will be parallelized, followed by one integrated UAT and one combined production delivery. The contractual implementation window should be read as 45-60 calendar days from formal commencement, subject to the response times stated in this SOW."
             }
           ]
         }
@@ -3245,115 +3241,9 @@
       ]
     },
     {
-      "id": "11-assumptions-dependencies-clarifications",
+      "id": "11-explicit-out-of-scope-items",
       "level": 1,
-      "title": "11. Assumptions, Dependencies & Clarifications",
-      "blocks": [
-        {
-          "type": "heading",
-          "level": 2,
-          "text": "11.1 Core Assumptions",
-          "id": "11-1-core-assumptions"
-        },
-        {
-          "type": "list",
-          "style": "bullet",
-          "items": [
-            [
-              {
-                "text": "The project is a responsive web application; native iOS/Android applications are not specified in the source SOP."
-              }
-            ],
-            [
-              {
-                "text": "The final technology stack and hosting architecture will be agreed separately; this SOW defines product scope rather than a mandatory framework/vendor."
-              }
-            ],
-            [
-              {
-                "text": "Course and e-book content is supplied in usable digital formats by the client."
-              }
-            ],
-            [
-              {
-                "text": "Admin users, rather than a separate instructor portal, will control course/e-book publishing and management because instructor modules are excluded."
-              }
-            ],
-            [
-              {
-                "text": "Payment gateway implementation is not included in the base scope because the source only references payment reporting conditionally and does not define a payment flow."
-              }
-            ],
-            [
-              {
-                "text": "External live-session links, if used as content, are treated as simple resource links; no live-class system is included."
-              }
-            ],
-            [
-              {
-                "text": "The retained recommendation system does not include the crossed-out dedicated recommendation widgets on the Student Dashboard."
-              }
-            ],
-            [
-              {
-                "text": "Leaderboards retained under performance analytics are treated separately from the excluded gamification/XP/badge system."
-              }
-            ],
-            [
-              {
-                "text": "The system will preserve logical service boundaries so AI, search, media processing, notifications or analytics can be extracted later if scale or operational requirements justify it."
-              }
-            ],
-            [
-              {
-                "text": "PostgreSQL/relational storage, Redis-class caching, object storage/CDN and retrieval/search infrastructure are architectural recommendations; equivalent technologies may be selected during technical setup without changing the functional scope."
-              }
-            ],
-            [
-              {
-                "text": "The recommended first-release architecture is a modular monolith for core business capabilities, with separate User Web and Admin Web frontends."
-              }
-            ],
-            [
-              {
-                "text": "The three SOW modules are functional boundaries, not three standalone backend systems; identity, permissions and retained business data will use a shared platform foundation."
-              }
-            ]
-          ]
-        },
-        {
-          "type": "heading",
-          "level": 2,
-          "text": "11.2 Schedule Dependencies",
-          "id": "11-2-schedule-dependencies"
-        },
-        {
-          "type": "list",
-          "style": "bullet",
-          "items": [
-            [
-              {
-                "text": "Delays in approvals, content, credentials, production access or UAT feedback may move the practical completion date within or beyond the planned window."
-              }
-            ],
-            [
-              {
-                "text": "New features, changed workflows or substantial redesign requests after approval may require a revised estimate."
-              }
-            ],
-            [
-              {
-                "text": "The 45-day end of the range assumes rapid approvals and no material dependency delays; the 60-day schedule is the maximum planned implementation envelope for the agreed base scope."
-              }
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": "12-explicit-out-of-scope-items",
-      "level": 1,
-      "title": "12. Explicit Out-of-Scope Items",
+      "title": "11. Explicit Out-of-Scope Items",
       "blocks": [
         {
           "type": "para",
@@ -3419,8 +3309,8 @@
         {
           "type": "heading",
           "level": 2,
-          "text": "12.1 Not Defined in the Source SOP",
-          "id": "12-1-not-defined-in-the-source-sop"
+          "text": "11.1 Not Defined in the Source SOP",
+          "id": "11-1-not-defined-in-the-source-sop"
         },
         {
           "type": "para",
@@ -3479,9 +3369,9 @@
       ]
     },
     {
-      "id": "13-change-control-scope-governance",
+      "id": "12-change-control-scope-governance",
       "level": 1,
-      "title": "13. Change Control & Scope Governance",
+      "title": "12. Change Control & Scope Governance",
       "blocks": [
         {
           "type": "para",
@@ -3525,15 +3415,15 @@
       ]
     },
     {
-      "id": "14-final-delivery-sign-off",
+      "id": "13-final-delivery-sign-off",
       "level": 1,
-      "title": "14. Final Delivery & Sign-Off",
+      "title": "13. Final Delivery & Sign-Off",
       "blocks": [
         {
           "type": "heading",
           "level": 2,
-          "text": "14.1 Final Delivery",
-          "id": "14-1-final-delivery"
+          "text": "13.1 Final Delivery",
+          "id": "13-1-final-delivery"
         },
         {
           "type": "callout",
@@ -3547,8 +3437,8 @@
         {
           "type": "heading",
           "level": 2,
-          "text": "14.2 Proposed Sign-Off Record",
-          "id": "14-2-proposed-sign-off-record"
+          "text": "13.2 Proposed Sign-Off Record",
+          "id": "13-2-proposed-sign-off-record"
         },
         {
           "type": "table",
@@ -3578,8 +3468,8 @@
         {
           "type": "heading",
           "level": 2,
-          "text": "14.3 Approval Statement",
-          "id": "14-3-approval-statement"
+          "text": "13.3 Approval Statement",
+          "id": "13-3-approval-statement"
         },
         {
           "type": "para",

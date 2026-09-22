@@ -1,6 +1,7 @@
 import type { Page as PageT } from '../types/book';
 import { BlockRenderer } from './blocks/BlockRenderer';
 import { PageContextProvider } from './PageContext';
+import { Highlightable, textRuns } from './Highlightable';
 
 export function Page({ page, total }: { page: PageT; total: number }) {
   return (
@@ -43,8 +44,8 @@ function ChapterOpener({ page }: { page: PageT }) {
   if (head.type !== 'heading') return null;
   return (
     <>
-      <span className="kicker">{chapterLabel(page.sectionTitle)}</span>
-      <h1 className="h1 opener">{head.text}</h1>
+      <Highlightable as="span" className="kicker" scope="kicker" runs={textRuns(chapterLabel(page.sectionTitle))} />
+      <Highlightable as="h1" className="h1 opener" scope="h" runs={textRuns(head.text)} />
       {rest.map((b, i) => <BlockRenderer key={i} block={b} />)}
     </>
   );

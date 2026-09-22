@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { Highlight, HighlightColor } from '../lib/highlights/types';
 import { loadHighlights, newHighlightId, saveHighlights } from '../lib/highlights/store';
 
@@ -14,7 +14,6 @@ type Ctx = {
   popup: PopupTarget | null;
   setMode: (v: boolean) => void;
   setColor: (c: HighlightColor) => void;
-  addHighlight: (h: Omit<Highlight, 'id' | 'createdAt'>) => Highlight;
   removeHighlight: (id: string) => void;
   updateComment: (id: string, text: string) => void;
   removeComment: (id: string) => void;
@@ -22,6 +21,7 @@ type Ctx = {
   closePopup: () => void;
   getForKey: (hlKey: string) => Highlight[];
   getById: (id: string) => Highlight | undefined;
+  getGroup: (id: string) => Highlight[];
 };
 
 const HighlightsContext = createContext<Ctx | null>(null);
@@ -35,7 +35,6 @@ const NOOP_CTX: Ctx = {
   popup: null,
   setMode: () => {},
   setColor: () => {},
-  addHighlight: (h) => ({ ...h, id: 'noop', createdAt: 0 }),
   removeHighlight: () => {},
   updateComment: () => {},
   removeComment: () => {},
@@ -43,11 +42,21 @@ const NOOP_CTX: Ctx = {
   closePopup: () => {},
   getForKey: () => [],
   getById: () => undefined,
+  getGroup: () => [],
 };
+
+// Every highlightable text unit in the book (see Highlightable.tsx).
+const UNIT_SELECTOR = '.book-flipper [data-hl-key]';
 
 export function useHighlights(): Ctx {
   const ctx = useContext(HighlightsContext);
   return ctx ?? NOOP_CTX;
+}
+
+// Matches a highlight and the other pieces of the same selection.
+function inGroupOf(target: Highlight | undefined) {
+  return (h: Highlight) =>
+    !!target && (h.id === target.id || (!!target.groupId && h.groupId === target.groupId));
 }
 
 export function HighlightsProvider({ children }: { children: ReactNode }) {
@@ -55,6 +64,8 @@ export function HighlightsProvider({ children }: { children: ReactNode }) {
   const [mode, setMode] = useState(false);
   const [color, setColor] = useState<HighlightColor>('yellow');
   const [popup, setPopup] = useState<PopupTarget | null>(null);
+  const colorRef = useRef(color);
+  colorRef.current = color;
 
   useEffect(() => { saveHighlights(highlights); }, [highlights]);
 
@@ -74,9 +85,8 @@ export function HighlightsProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!mode) return;
     const TEXT_SELECTOR =
-      '.book-flipper .para, .book-flipper .lede, .book-flipper .callout, ' +
-      '.book-flipper .h1, .book-flipper .h2, .book-flipper .toc-title, ' +
-      '.book-flipper .list, .book-flipper .table';
+      `${UNIT_SELECTOR}, .book-flipper .lede, .book-flipper .callout, .book-flipper .toc-title, ` +
+      '.book-flipper .list, .book-flipper .table, .book-flipper .figure';
     function absorb(e: Event) {
       const target = e.target as HTMLElement | null;
       if (!target) return;
@@ -91,25 +101,58 @@ export function HighlightsProvider({ children }: { children: ReactNode }) {
     };
   }, [mode]);
 
-  const addHighlight = useCallback((h: Omit<Highlight, 'id' | 'createdAt'>): Highlight => {
-    const full: Highlight = { ...h, id: newHighlightId(), createdAt: Date.now() };
-    setHighlights(prev => [...prev, full]);
-    return full;
-  }, []);
+  // Turn a finished selection into highlights: one per text unit it touches,
+  // grouped when the selection spans several (e.g. a heading and a paragraph).
+  useEffect(() => {
+    if (!mode) return;
+    function onMouseUp() {
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
+      const range = sel.getRangeAt(0);
+      const pieces = selectedPieces(range);
+      if (pieces.length === 0) return;
+
+      // Snapshot the range's rect BEFORE we clear the selection.
+      const anchor = range.getBoundingClientRect();
+      const groupId = pieces.length > 1 ? newHighlightId() : undefined;
+      const createdAt = Date.now();
+      const created: Highlight[] = pieces.map(p => ({
+        ...p,
+        id: newHighlightId(),
+        groupId,
+        color: colorRef.current,
+        createdAt,
+      }));
+      setHighlights(prev => [...prev, ...created]);
+      sel.removeAllRanges();
+
+      // Open the popup once the new marks have rendered.
+      requestAnimationFrame(() => setPopup({ highlightId: created[0].id, anchor }));
+    }
+    document.addEventListener('mouseup', onMouseUp);
+    return () => document.removeEventListener('mouseup', onMouseUp);
+  }, [mode]);
 
   const removeHighlight = useCallback((id: string) => {
-    setHighlights(prev => prev.filter(h => h.id !== id));
+    setHighlights(prev => {
+      const same = inGroupOf(prev.find(h => h.id === id));
+      return prev.filter(h => !same(h));
+    });
     setPopup(p => (p && p.highlightId === id ? null : p));
   }, []);
 
   const updateComment = useCallback((id: string, text: string) => {
-    setHighlights(prev => prev.map(h =>
-      h.id === id ? { ...h, comment: { text, lastEditedAt: Date.now() } } : h
-    ));
+    setHighlights(prev => {
+      const same = inGroupOf(prev.find(h => h.id === id));
+      return prev.map(h => (same(h) ? { ...h, comment: { text, lastEditedAt: Date.now() } } : h));
+    });
   }, []);
 
   const removeComment = useCallback((id: string) => {
-    setHighlights(prev => prev.map(h => (h.id === id ? { ...h, comment: undefined } : h)));
+    setHighlights(prev => {
+      const same = inGroupOf(prev.find(h => h.id === id));
+      return prev.map(h => (same(h) ? { ...h, comment: undefined } : h));
+    });
   }, []);
 
   const openPopup = useCallback((target: PopupTarget) => setPopup(target), []);
@@ -122,7 +165,6 @@ export function HighlightsProvider({ children }: { children: ReactNode }) {
     popup,
     setMode,
     setColor,
-    addHighlight,
     removeHighlight,
     updateComment,
     removeComment,
@@ -130,7 +172,43 @@ export function HighlightsProvider({ children }: { children: ReactNode }) {
     closePopup,
     getForKey: (hlKey) => highlights.filter(h => h.hlKey === hlKey),
     getById: (id) => highlights.find(h => h.id === id),
-  }), [highlights, mode, color, popup, addHighlight, removeHighlight, updateComment, removeComment, openPopup, closePopup]);
+    getGroup: (id) => highlights.filter(inGroupOf(highlights.find(h => h.id === id))),
+  }), [highlights, mode, color, popup, removeHighlight, updateComment, removeComment, openPopup, closePopup]);
 
   return <HighlightsContext.Provider value={value}>{children}</HighlightsContext.Provider>;
+}
+
+type Piece = Pick<Highlight, 'hlKey' | 'startOffset' | 'endOffset' | 'text'>;
+
+// The part of each highlightable unit covered by `range`, in document order.
+function selectedPieces(range: Range): Piece[] {
+  const common = range.commonAncestorContainer;
+  const commonEl = common.nodeType === Node.ELEMENT_NODE ? (common as Element) : common.parentElement;
+  if (!commonEl) return [];
+
+  const enclosing = commonEl.closest(UNIT_SELECTOR);
+  const units = enclosing ? [enclosing] : Array.from(commonEl.querySelectorAll(UNIT_SELECTOR));
+
+  const pieces: Piece[] = [];
+  for (const el of units) {
+    if (!(el instanceof HTMLElement) || !range.intersectsNode(el)) continue;
+    const hlKey = el.dataset.hlKey;
+    if (!hlKey) continue;
+    const full = el.textContent ?? '';
+    const start = el.contains(range.startContainer) ? offsetWithin(el, range.startContainer, range.startOffset) : 0;
+    const end = el.contains(range.endContainer) ? offsetWithin(el, range.endContainer, range.endOffset) : full.length;
+    if (end <= start) continue;
+    const text = full.slice(start, end);
+    if (!text.trim()) continue;
+    pieces.push({ hlKey, startOffset: start, endOffset: end, text });
+  }
+  return pieces;
+}
+
+// Plain-text character offset of a DOM position inside `root`.
+function offsetWithin(root: Node, node: Node, offset: number): number {
+  const r = document.createRange();
+  r.setStart(root, 0);
+  r.setEnd(node, offset);
+  return r.toString().length;
 }
