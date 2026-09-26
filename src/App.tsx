@@ -197,7 +197,7 @@ export default function App() {
       <header className="reader-heading" key={view}>
         {onShelf ? <>
           <strong>Preneur Gate</strong>
-          <span className="reader-edition">Statement of work · Questionnaire</span>
+          <span className="reader-edition">Statement of work · Questionnaire · Website layout</span>
         </> : <>
           <strong>
             <button type="button" className="reader-home" onClick={backToShelf} aria-label="Preneur Gate: show both books" title="Show both books">Preneur Gate</button>

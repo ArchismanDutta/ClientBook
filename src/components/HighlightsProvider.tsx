@@ -93,6 +93,9 @@ export function HighlightsProvider({ children }: { children: ReactNode }) {
     function absorb(e: Event) {
       const target = e.target as HTMLElement | null;
       if (!target) return;
+      // Let mark.hl events through — they are handled by React capture
+      // handlers on the mark itself which stop native propagation.
+      if (target.closest('mark.hl')) return;
       if (target.closest(TEXT_SELECTOR)) {
         e.stopPropagation();
       }

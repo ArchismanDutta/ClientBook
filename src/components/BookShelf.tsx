@@ -3,6 +3,7 @@ import type { Book } from '../types/book';
 import type { Questionnaire } from '../types/questionnaire';
 import { allQuestions, countAnswered } from '../lib/questionnaire/store';
 import { Cover } from './Cover';
+import { WebsiteLayoutNote } from './WebsiteLayoutNote';
 import { QuestionnaireCover } from './questionnaire/QuestionnaireCovers';
 import { useQuestionnaire } from './questionnaire/QuestionnaireProvider';
 
@@ -39,17 +40,20 @@ export function BookShelf({ book, questionnaire, pageW, pageH, sowPages, opening
     return () => observer.disconnect();
   }, []);
 
-  const gap = width < 600 ? 14 : 64;
-  const scale = Math.max(0.2, Math.min(0.88, (width - gap) / (2 * pageW)));
+  const stacked = width < 760;
+  const gap = 36;
+  const scale = stacked ? Math.min(0.88, width / pageW) : Math.min(0.88, (width - 2 * gap) / (3 * pageW));
   const style = {
     '--page-w': `${pageW}px`,
     '--page-h': `${pageH}px`,
     '--shelf-scale': scale,
-    '--shelf-shift': `${(pageW * scale + gap) / 2}px`,
+    '--shelf-shift': `${pageW * scale + gap}px`,
+    '--shelf-item-h': `${pageH * scale}px`,
+    '--shelf-item-w': `${pageW * scale}px`,
   } as CSSProperties;
 
   return (
-    <div ref={ref} className="book-shelf" style={style} data-opening={opening ?? undefined} data-came-from={cameFrom ?? undefined}>
+    <div ref={ref} className="book-shelf" style={style} data-stacked={stacked} data-opening={opening ?? undefined} data-came-from={cameFrom ?? undefined}>
       <ShelfBook id="sow" label="Open the statement of work" caption="Statement of work" detail={sowPages ? `${sowPages} pages` : 'Read inside'} onOpen={onOpen} disabled={Boolean(opening)}>
         <Cover book={book} />
       </ShelfBook>
@@ -57,6 +61,8 @@ export function BookShelf({ book, questionnaire, pageW, pageH, sowPages, opening
         caption="Client questionnaire" detail={answered ? `${answered} of ${questions.length} answered` : `${questions.length} questions`} onOpen={onOpen} disabled={Boolean(opening)}>
         <QuestionnaireCover questionnaire={questionnaire} />
       </ShelfBook>
+      <div className="shelf-note"><WebsiteLayoutNote /></div>
+      <span className="shelf-caption" data-book="note" aria-hidden="true"><strong>Website layout</strong><span>Homepage blueprint</span></span>
     </div>
   );
 }
